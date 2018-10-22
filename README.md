@@ -36,7 +36,7 @@ Not feeling picky? NoPlanNeeded also has a simple generator feature that require
 
 ## Technologies & Challenges
 ---
-No Plan Needed is a web application built on MongoDB utilizing express.js as a framework. The database will be used to store user information, preferences, and previous events attended.
+No Plan Needed is a web application built using MongoDB, as the database; using express.js, as a framework;and React as the frontend. The database will be used to store user information, preferences, and previous events attended. 
 
 Backend Technical Challenges:
 - Events should not be saved into the database unless a user decides to attend
