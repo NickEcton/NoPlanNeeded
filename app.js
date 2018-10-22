@@ -32,7 +32,7 @@ mongoose
 
 
 //basic route to render info 
-// app.get("/", (req, res) => res.send("Hello World"));
+app.get("/", (req, res) => res.send("Hello World"));
 
 
 //create a new router, we add a new router to the app
