@@ -1,0 +1,13 @@
+.nav-bar-div {
+    border: 1px solid red;
+    height: 50px;
+    background-color: #51a3fd;
+    display: flex;
+    flex-direction: row
+}
+
+.nav-logo {
+    height: 45px;
+    width: 45px;
+    padding: 2.5px;
+}

@@ -31,11 +31,13 @@ Not feeling picky? NoPlanNeeded also has a simple generator feature that require
 
 ## Wireframes
 ---
+![Welcome Modal](images/logged-out-welcome-modal.png)
+
 ![Logged Out Homepage](images/logged-out-homepage.png)
 
-![Logged Out Homepage](images/logged-in-homepage.png)
+![Logged In Homepage](images/logged-in-homepage.png)
 
-![Logged Out Homepage](images/activity-show-modal.png)
+![Event Show Page](images/activity-show-modal.png)
 
 ### Bonus Features
 - [ ] Users that dislike an event, will not be suggested that event
