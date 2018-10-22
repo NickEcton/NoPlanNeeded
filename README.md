@@ -49,8 +49,6 @@ API Technical Challenges:
 - Events should be able to be filtered for numerous preferences. These include: free/paid events, restaurants, bars, concerts, outdoors activities, etc.
 - Random events should come from random categories (i.e. if there are mostly restaurants around, we do not want 9/10 button clicks to result in a restaurant)
 
-The frontend will be displayed using React and Redux to keep the page responsive, and the state up to date.
-
 Frontend Technical Challenges:
 - The app should be functional without having to sign up, but signing up offers a few benefits such as saving preferences and events attended
 - The event generator should not take a long time to send API requests, parse events, choose and show one
@@ -96,10 +94,10 @@ Frontend Technical Challenges:
 ## Octobter 26
 + Test functionality of site and solve any problematic interactions
 
-## Ocobter 27
-+ Upon completion of necessary MVP's being creation of daily planner 
+## Octobter 27
++ Upon completion of necessary MVP's begin creation of daily planner 
 
-## Ocobter 28
-+ Finish any styling and check for bugs before pushign to production
+## Octobter 28
++ Finish any styling and check for bugs before pushing to production
 
 
