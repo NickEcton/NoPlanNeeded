@@ -1,14 +1,14 @@
 # NoPlanNeeded
 
-### NoPlanNeeded 
+### NoPlanNeeded
 ---
 NPN is a quick and powerful random event generator. You can check out a [live](https://www.google.com) demo here!
 
 ## Background and Overview
 ---
-As individuals living in the modern age, we are enveloped by choice. Too much choice. And finding what to do with our spare time is no exception. 
+As individuals living in the modern age, we are enveloped by choice. Too much choice. And finding what to do with our spare time is no exception.
 
-Enter NoPlanNeed; an easy-to-use and effective random event generator that allows users to filter based on their preferences and location to find the next event that is perfect for them and their friends. 
+Enter NoPlanNeed; an easy-to-use and effective random event generator that allows users to filter based on their preferences and location to find the next event that is perfect for them and their friends.
 
 Not feeling picky? NoPlanNeeded also has a simple generator feature that requires no login or signup and will provide the user with events filtered by the users current location.
 
@@ -27,8 +27,16 @@ Not feeling picky? NoPlanNeeded also has a simple generator feature that require
     - [ ] Construct an interactive map that shows the user where the event is being held
 - [ ] User show page: Displays past events attended by the User as well as preferences for future events
     - [ ] Storage of User's preferences and previously attended events in Database
-    - [ ] Users can like or dislike an event 
-    
+    - [ ] Users can like or dislike an event
+
+## Wireframes
+---
+![Logged Out Homepage](images/logged-out-homepage.png)
+
+![Logged Out Homepage](images/logged-in-homepage.png)
+
+![Logged Out Homepage](images/activity-show-modal.png)
+
 ### Bonus Features
 - [ ] Users that dislike an event, will not be suggested that event
 - [ ] NoPlanNeeded will be modified to support media-queries
@@ -36,7 +44,7 @@ Not feeling picky? NoPlanNeeded also has a simple generator feature that require
 
 ## Technologies & Challenges
 ---
-No Plan Needed is a web application built using MongoDB, as the database; using express.js, as a framework;and React as the frontend. The database will be used to store user information, preferences, and previous events attended. 
+No Plan Needed is a web application built using MongoDB, as the database; using express.js, as a framework;and React as the frontend. The database will be used to store user information, preferences, and previous events attended.
 
 Backend Technical Challenges:
 - Events should not be saved into the database unless a user decides to attend
@@ -68,7 +76,7 @@ Frontend Technical Challenges:
 
 **Nick Ecton**, **Stephanie Hsu**, **Devin Flood**, **Clayton Christian**
 
-## October 20 - October 21 
+## October 20 - October 21
 + Develop frontend wireframe **Devin**
 + Research API's **Nick** & **Clayton**
 + Create User Auth **Stephanie**
@@ -95,9 +103,7 @@ Frontend Technical Challenges:
 + Test functionality of site and solve any problematic interactions
 
 ## Octobter 27
-+ Upon completion of necessary MVP's begin creation of daily planner 
++ Upon completion of necessary MVP's begin creation of daily planner
 
 ## Octobter 28
 + Finish any styling and check for bugs before pushing to production
-
-
