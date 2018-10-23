@@ -1,17 +1,3 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-// import * as serviceWorker from './serviceWorker';
-// import configureStore from './store/store.js';
-
-
-// ReactDOM.render(<App store={configureStore()}/>, document.getElementById('root'));
-
-// // If you want your app to work offline and load faster, you can change
-// // unregister() to register() below. Note this comes with some pitfalls.
-// // Learn more about service workers: http://bit.ly/CRA-PWA
-// serviceWorker.unregister();
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -20,11 +6,12 @@ import * as APIUtil from './util/session_api_util';
 //Components
 import configureStore from './store/store';
 import App from './App.js';
-import * as serviceWorker from './serviceWorker';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
-  // Check for token
+
+
+  // Check for token in the window / local storage 
   if (localStorage.jwtToken) {
     // Set auth token header auth
     APIUtil.setAuthToken(localStorage.jwtToken);
@@ -42,7 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = '/login';
     }
   }
+
+
+  //testing 
+  window.store = store; 
+  window.getState = store.getState;
+
+
+
+
   const root = document.getElementById('root');
   ReactDOM.render(<App store={store} />, root);
-  serviceWorker.unregister();
 });
