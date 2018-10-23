@@ -54,6 +54,7 @@
 .login-signup {
     display: flex;
     flex-direction: row;
+    margin-right: 10px;
 }
 
 .login-signup a {
@@ -66,10 +67,11 @@
     margin-bottom: auto;
     margin-right: 20px;
     color: #51a3fd;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     text-decoration: none;
     text-align: center;
-    padding-top: 5px;
+    padding-top: 2px;
     box-sizing: border-box;
 }
 

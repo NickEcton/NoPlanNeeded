@@ -31,7 +31,7 @@ Not feeling picky? NoPlanNeeded also has a simple generator feature that require
 
 ## Wireframes
 ---
-![Welcome Modal](images/logged-out-welcome-modal.png)
+![Welcome Modal](frontend/src/images/logged-out-welcome-modal.png)
 
 ![Logged Out Homepage](images/logged-out-homepage.png)
 
