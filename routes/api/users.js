@@ -82,13 +82,11 @@ router.post('/login', (req, res) => {
     //async call (finding the User)
     User.findOne({email})
         .then(user => {
-            //if user does not exist 
-            // if(!user) {
-            //     errors.email = "This user does not exist"
-            //     return res.status(400).json(errors)
-            //     //need to compare password coming with password digest 
-            // } else {
-            if (user) {
+            if(!user) {
+                errors.email = "This user does not exist"
+                return res.status(400).json(errors)
+                //need to compare password coming with password digest 
+            } else {
                 //async function 
                 bcrypt.compare(password, user.password).then(isMatch => {
                     //if isMatch is true 
@@ -106,16 +104,14 @@ router.post('/login', (req, res) => {
                             })
                         })
                     } else {
-                        errors.msg = "You have entered the wrong user or password combination";
+                        errors.password = "You have entered the wrong password";
                         return res.status(400).json(errors);
                     }
                 })
-            } else {
-                errors.msg = "You have entered the wrong user or password combination";
-                return res.status(400).json(errors);
             }
-        })
-})
+         } )
+    }
+)
 
 
 
