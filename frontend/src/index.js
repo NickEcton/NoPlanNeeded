@@ -7,6 +7,9 @@ import * as APIUtil from './util/session_api_util';
 import configureStore from './store/store';
 import App from './App.js';
 
+
+import { logoutUser } from './util/session_api_util.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
 
@@ -34,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
   //testing 
   window.store = store; 
   window.getState = store.getState;
+  window.dispatch = store.dispatch; 
+  window.logout = logoutUser;
 
 
 

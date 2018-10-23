@@ -82,7 +82,6 @@ router.post('/login', (req, res) => {
     //async call (finding the User)
     User.findOne({email})
         .then(user => {
-            //if user does not exist 
             if(!user) {
                 errors.email = "This user does not exist"
                 return res.status(400).json(errors)
@@ -105,14 +104,14 @@ router.post('/login', (req, res) => {
                             })
                         })
                     } else {
-                        // errors.password = "incorrect password";
-                        //above code does not work for me? 
-                        return res.status(400).json({msg: 'incorrect password'});
+                        errors.password = "You have entered the wrong password";
+                        return res.status(400).json(errors);
                     }
                 })
             }
-        })
-})
+         } )
+    }
+)
 
 
 
