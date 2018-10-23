@@ -83,11 +83,12 @@ router.post('/login', (req, res) => {
     User.findOne({email})
         .then(user => {
             //if user does not exist 
-            if(!user) {
-                errors.email = "This user does not exist"
-                return res.status(400).json(errors)
-                //need to compare password coming with password digest 
-            } else {
+            // if(!user) {
+            //     errors.email = "This user does not exist"
+            //     return res.status(400).json(errors)
+            //     //need to compare password coming with password digest 
+            // } else {
+            if (user) {
                 //async function 
                 bcrypt.compare(password, user.password).then(isMatch => {
                     //if isMatch is true 
@@ -105,11 +106,13 @@ router.post('/login', (req, res) => {
                             })
                         })
                     } else {
-                        // errors.password = "incorrect password";
-                        //above code does not work for me? 
-                        return res.status(400).json({msg: 'incorrect password'});
+                        errors.msg = "You have entered the wrong user or password combination";
+                        return res.status(400).json(errors);
                     }
                 })
+            } else {
+                errors.msg = "You have entered the wrong user or password combination";
+                return res.status(400).json(errors);
             }
         })
 })

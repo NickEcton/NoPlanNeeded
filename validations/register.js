@@ -23,7 +23,7 @@ module.exports = function validateRegisterInput(data) {
   }
 
   if (!Validator.isEmail(data.email)) {
-    errors.email = 'Email is invalid';
+    errors.email = 'Email must be a valid email';
   }
 
   if (Validator.isEmpty(data.password)) {
