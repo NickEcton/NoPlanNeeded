@@ -7,6 +7,7 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 
 // We can use axios to set a default header
+//backend is using passport and JwtStrategy to confirm authenticity of web token
 export const setAuthToken = token => {
   if (token) {
     // Apply to every request
@@ -26,7 +27,7 @@ export const registerUser = (userData, history) => dispatch => {
       const { token } = res.data;
       // Set token to ls
       localStorage.setItem('jwtToken', token);
-      // Set token to Auth header
+      // Set token to Authorization header
       setAuthToken(token);
       // Decode token to get user data
       const decoded = jwt_decode(token);
