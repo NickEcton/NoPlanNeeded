@@ -7,7 +7,7 @@ const predictNormalizer = (res) => {
   const date = rand_event.start
   const description = rand_event.description;
 
-  let normalized_trail = {
+  let normalized_event = {
     title: title,
     location: location,
     date: date,
@@ -15,7 +15,7 @@ const predictNormalizer = (res) => {
     description: description
   }
 
-  return normalized_trail;
+  return normalized_event;
 }
 
 export default predictNormalizer;
