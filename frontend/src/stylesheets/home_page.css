@@ -2,13 +2,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
-    border: 1px solid blue;
+    height: calc(100vh - 65px);
+    box-sizing: border-box;
     }
 
 .event-button {
-    border: 1px solid red;
-    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
     width: 250px;
     height: 250px;
+}
+
+.event-button:active {
+    transform: translateY(5px);
 }

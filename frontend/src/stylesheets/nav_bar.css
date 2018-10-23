@@ -1,13 +1,45 @@
 .nav-bar-div {
-    border: 1px solid red;
-    height: 50px;
+    height: 60px;
+    box-sizing: border-box;
     background-color: #51a3fd;
     display: flex;
-    flex-direction: row
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
 }
 
 .nav-logo {
-    height: 45px;
-    width: 45px;
-    padding: 2.5px;
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+    padding-left: 20px;
+}
+
+.drop-down {
+    position: relative;
+}
+.menu-icon {
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    padding-right: 20px;
+}
+
+.menu-icon:hover + .drop-down-content { 
+    display: block;
+}
+
+.drop-down-content:hover {
+    display: block;
+}
+
+.drop-down-content {
+    border-radius: 5px;
+    background-color: #e3e8ed;
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    width: 180px;
+    display: none;
+    z-index: 2;
 }
