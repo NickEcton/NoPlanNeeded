@@ -25,7 +25,7 @@ const receiveTheGoogleImage = (image) => ({
     image
 })
 
-export const recieveEventful = (category, location) => dispatch => {
+export const receiveEventful = (category, location) => dispatch => {
    return ApiUtil.receiveEventful(category, location).then((res) => {
         dispatch(receiveMultipleEventful(res))
     })
