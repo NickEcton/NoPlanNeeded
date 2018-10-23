@@ -3,7 +3,7 @@ import {
     RECEIVE_CURRENT_USER
   } from '../util/session_api_util';
   
-  export default (state = [], action) => {
+const sessionErrorsReducer = (state = [], action) => {
     Object.freeze(state);
     switch (action.type) {
       case GET_ERRORS:
@@ -14,3 +14,5 @@ import {
         return state;
     }
   };
+
+export default sessionErrorsReducer

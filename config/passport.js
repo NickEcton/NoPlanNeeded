@@ -1,4 +1,5 @@
 //secure RESTful endpoints w/o session 
+//authenticate the requests for JWT 
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const mongoose = require('mongoose');
@@ -9,7 +10,7 @@ const options = {};
 options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.secretOrKey = keys.secretOrKey;
 
-
+//done can pass the user to the frontend
 module.exports = passport => {
     passport.use(new JwtStrategy(options, (payload, done) => {
         User.findById(payload.id)

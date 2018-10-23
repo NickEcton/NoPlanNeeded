@@ -20,7 +20,7 @@ const UserSchema = new Schema({
     }
   })
 
-//the name of what you call your schemda, second argument
-//is the UserSchema 
+//the name of what you call your schemda, second argument the UserSchema 
 //we pass in the schema to mongoose.model and it creates a model 
+//not storing the password as plain text
 module.exports = User = mongoose.model('user', UserSchema);
