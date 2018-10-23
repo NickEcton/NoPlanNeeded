@@ -2,6 +2,10 @@ export const RECEIVE_EVENTFUL = 'RECEIVE_EVENTFUL'
 export const RECEIVE_GOOGLE = 'RECEIVE_GOOGLE'
 export const RECEIVE_GOOGLE_IMAGE = 'RECEIVE_GOOGLE_IMAGE'
 export const RECEIVE_EVENTFUL_IMAGE = 'RECEIVE_EVENTFUL_IMAGE'
+export const RECEIVE_HIKING = 'RECEIVE_HIKING'
+export const RECEIVE_TOUR = 'RECEIVE_TOUR'
+export const RECEIVE_TOUR_IMAGE = 'RECEIVE_TOUR_IMAGE'
+export const RECEIVE_EVENT = 'RECEIVE_EVENT'
 import * as ApiUtil from '../util/api/events.js'
 
 
@@ -47,5 +51,29 @@ export const receiveGoogleImage = (id) => dispatch => {
     return ApiUtil.receiveGoogleImage(id).then((res) => {
         dispatch(receiveTheGoogleImage(res))
     })
+}
+
+export const receiveHiking = (location) => dispatch => {
+    return ApiUtil.receiveHiking(location).then((res) => {
+      dispatch(receiveMultipleHiking(res))
+    })
+   }
+   
+export const receiveTour = (location) => dispatch => {
+return ApiUtil.receiveTour(location).then((res) => {
+    dispatch(receiveMultipleTour(res))
+})
+}
+
+export const receiveTourImage = (img_get_req) => {
+return ApiUtil.receiveTourImage(img_get_req).then((res) => {
+    dispatch(receiveTheTourImage(res))
+})
+}
+
+export const receiveEvent = (location) => dispatch => {
+return ApiUtil.receiveEvent(location).then((res) => {
+    dispatch(receiveMultipleEvent(res))
+})
 }
 
