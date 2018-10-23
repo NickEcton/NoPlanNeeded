@@ -23,7 +23,7 @@ const receiveMultipleGoogle = (events) => ({
 const receiveTheGoogleImage = (image) => ({
     type: RECEIVE_GOOGLE_IMAGE,
     image
-)}
+})
 
 export const recieveEventful = (category, location) => dispatch => {
    return ApiUtil.receiveEventful(category, location).then((res) => {
