@@ -7,11 +7,11 @@ import npnlogo from '../../images/npn-logo-1.1.png'
 export default () => {
     return (
         <div className='home-page-div'>
-            <img 
-                className='event-button'
-                src={npnlogo}
-                alt='random event button'
-            />
+            <Link to='/event'>
+                <img className='event-button' src={npnlogo} 
+                    alt='random event button'
+                />
+            </Link>
         </div>
     );
 }
