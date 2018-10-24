@@ -66,7 +66,7 @@ class SessionForm extends React.Component {
     if(this.props.formType === 'Sign up') {
       return (
         <div id='session-modal'
-          className="session-modal-background"
+          className="modal-background"
           onClick={this.closeModal}>
           <div className="session-form-div">
             <img id='modal-x'
@@ -107,7 +107,7 @@ class SessionForm extends React.Component {
     } else {
       return (
         <div id='session-modal' 
-          className="session-modal-background" 
+          className="modal-background" 
           onClick={this.closeModal}>
           <div className="session-form-div">
             <img id='modal-x'
