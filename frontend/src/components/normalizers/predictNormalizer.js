@@ -11,7 +11,7 @@ const predictNormalizer = (res) => {
     title: title,
     location: location,
     date: date,
-    picture: "not available"
+    picture: "not available",
     description: description
   }
 
