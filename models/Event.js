@@ -6,14 +6,31 @@ const EventSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  text: {
+  title: {
+    type: String, 
+    required: true
+  },
+  description: {
     type: String,
     required: true
   },
-  name: {
-    type: String
+  location: {
+    type: Array,
+    required: [true, "Latitude is required"]
   },
-  date: {
+  picture: {
+    type: String, 
+    required: true 
+  },
+  eventDate: {
+    type: String,
+    required: true
+  },
+  userId: {
+    type: String,
+    required: true 
+  },
+  Date: {
     type: Date,
     default: Date.now
   }
