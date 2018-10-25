@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const users = require('./routes/api/users.js');
-const posts = require('./routes/api/posts');
+const preferences = require('./routes/api/preferences');
 const events = require('./routes/api/events.js');
 const passport = require('passport');
 require('./config/passport')(passport);
@@ -38,7 +38,7 @@ app.get("/", (req, res) => res.send("Hello World"));
 //create a new router, we add a new router to the app
 
 app.use("/api/users", users);
-app.use("/api/posts", posts);
+app.use("/api/preferences", preferences);
 app.use("/api/events", events);
 
 

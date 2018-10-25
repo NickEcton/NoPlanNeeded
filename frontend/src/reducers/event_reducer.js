@@ -14,7 +14,7 @@ import predictNormalizer from '../components/normalizers/predictNormalizer.js'
 import tourNormalizer from '../components/normalizers/tourNormalizer.js'
 
 const eventsReducer = (oldState = {}, action) => {
-    debugger
+    // debugger
     Object.freeze(oldState)
     switch(action.type) {
         case RECEIVE_EVENTFUL:
