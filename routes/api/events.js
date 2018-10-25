@@ -11,7 +11,7 @@ const validateEventInput = require('../../validations/events');
 router.get('/Eventful/:id', (req, res) => {
   axios({
     method: 'GET',
-    url: `http://eventful.com/json/events/?app_key=VQSPqhzDdNq9cW4t&id=${req.params.id}`,
+    url: `http://api.eventful.com/json/events/get?app_key=VQSPqhzDdNq9cW4t&id=${req.params.id}`,
   }).then(response => {
     res.send(response.data);
   })
