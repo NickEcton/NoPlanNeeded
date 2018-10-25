@@ -50,28 +50,27 @@ export const receiveEventful = (category, location) => dispatch => {
  }
 
 
-
 // export const receiveHiking = (location) => dispatch => {
 //     return ApiUtil.receiveHiking(location).then((res) => {
 //       dispatch(receiveMultipleHiking(res))
 //     })
-//    }
+// }
    
 // export const receiveTour = (location) => dispatch => {
-// return ApiUtil.receiveTour(location).then((res) => {
-//     dispatch(receiveMultipleTour(res))
-// })
+//     return ApiUtil.receiveTour(location).then((res) => {
+//         dispatch(receiveMultipleTour(res))
+//     })
 // }
 
 // export const receiveTourImage = (img_get_req) => {
-// return ApiUtil.receiveTourImage(img_get_req).then((res) => {
-//     dispatch(receiveTheTourImage(res))
-// })
+//     return ApiUtil.receiveTourImage(img_get_req).then((res) => {
+//         dispatch(receiveTheTourImage(res))
+//     })
 // }
 
 // export const receiveEvent = (location) => dispatch => {
-// return ApiUtil.receiveEvent(location).then((res) => {
-//     dispatch(receiveMultipleEvent(res))
-// })
+//     return ApiUtil.receiveEvent(location).then((res) => {
+//         dispatch(receiveMultipleEvent(res))
+//     })
 // }
 

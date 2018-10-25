@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch; 
   window.logout = logoutUser;
   window.receiveEventful = receiveEventful
-  window.receiveEventfulImage = receiveEventfulImage
   window.receiveGooglePlaces = receiveGooglePlaces
 
   const root = document.getElementById('root');

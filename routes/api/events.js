@@ -85,5 +85,47 @@ router.get('/new/GooglePlaces/:type/:location', (req, res) => {
   })
 })
 
+router.get('/hiking/:loc1/:loc2', (req, res) => {
+  axios({
+    method: 'GET',
+    url: `https://www.hikingproject.com/data/get-trails?lat=${req.params.loc1}&lon=${req.params.loc2}&key=200376730-1322e2d6ca80c8e55d1a282398106088&maxDistance=200`
+  }).then(response => {
+    res.send(response.data);
+  })
+ });
+ 
+ router.get('/tour/:location', (req, res) => {
+  axios({
+    method: 'GET',
+    url: `https://api.izi.travel/mtg/objects/search?form=short&type=tour&includes=location&except=city,country,publisher&languages=en&lat_lon=${req.params.location}&radius=10000&api_key=ff1c5c19-1fd2-4383-a810-3cebbf5819e6`
+  }).then(response => {
+    res.send(response.data);
+  })
+ });
+ 
+ router.get('/predict/:location', (req, res) => {
+  axios({
+    method: 'GET',
+    url: `https://api.predicthq.com/v1/events/?limit=5&within=15km@${req.params.location}`,
+    headers: {
+      Authorization: 'Bearer wEdKqev9Hvs8OxVAzaIhZnqpTfhDjW'
+    }
+  }).then(response => {
+    res.send(response.data);
+  })
+ });
+ 
+ router.get('/tourImage/:getreq', (req, res) => {
+  axios({
+    method: 'GET',
+    url: `https://api.predicthq.com/v1/events/?limit=5&within=15km@${req.params.location}`,
+    headers: {
+      Authorization: 'Bearer wEdKqev9Hvs8OxVAzaIhZnqpTfhDjW'
+    }
+  }).then(response => {
+    res.send(response.data);
+  })
+ });
+
 module.exports = router;
 
