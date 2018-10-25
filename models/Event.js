@@ -11,8 +11,7 @@ const EventSchema = new Schema({
     required: true
   },
   description: {
-    //text 
-    type: Text,
+    type: String,
     required: true
   },
   location: {
@@ -23,14 +22,18 @@ const EventSchema = new Schema({
     type: String, 
     required: true 
   },
-  date: {
+  EventDate: {
     type: Date,
     required: true
   },
-  timestamp: {
-    type: Date,
-    default: Date.now
-  }
+  userId: {
+    type: String,
+    required: true 
+  },
+  // Date: {
+  //   type: Date,
+  //   default: Date.now
+  // }
 });
 
 module.exports = Event = mongoose.model('event', EventSchema);

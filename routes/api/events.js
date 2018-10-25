@@ -7,39 +7,38 @@ const axios = require('axios');
 const Event = require('../../models/Event');
 const validateEventInput = require('../../validations/events');
 
-//work on this! 
-// router.get('/test/:id', (req, res) => {
-//   axios({
-//     method: 'GET',
-//     url: `http://eventful.com/json/events/?app_key=VQSPqhzDdNq9cW4t&id=${req.params.id}`,
-//   }).then(response => {
-//     // debugger;
-//     return res.send(response);
-//   })
-// });
-
-
-router.post('/createEvent', passport.authenticate('jwt', { session: false }), (req, res) => {
+//create an event when the users 'prefer this event'
+router.post('/create', passport.authenticate('jwt', { session: false }), (req, res) => {
+  debugger;
+  //model level validations 
   const { errors, isValid } = validateEventInput(req.body);
   
   if (!isValid) {
     return res.status(400).json(errors);
   }
-  
+
+  //location is now a string, might need to fix 
   const newEvent = new Event({
-    title: req.event.string,
-    description: req.event.description,
-    location: req.event.location, 
-    picture: req.event.picture, 
-    date: req.event.date, 
+    title: req.body.title,
+    description: req.body.description,
+    location: req.body.location, 
+    picture: req.body.picture, 
+    date: req.body.date,
+    userId: req.user.id
   })
   
   newEvent.save().then(event => res.json(event));
 }
 );
 
-//might need
-//////////////////////////////////////////////////////////
+router.get('/previousEvents', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Event.find({userId: req.user.id})
+      .sort({ date: -1 })
+      .then(events => res.json(events))
+      .catch(err => res.status(404).json({ noeventsfound: 'No events found' }));
+  }
+);
+
 // router.get('/', (req, res) => {
   //   Event.find()
   //     .sort({ date: -1 })

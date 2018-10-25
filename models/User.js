@@ -14,12 +14,13 @@ const UserSchema = new Schema({
       type: String,
       required: true
     },
-    preferences: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "preferences"
-      }
-    ],
+    // preferences: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "preferences"
+    //   }
+    // ],
+    
     date: {
       type: Date,
       default: Date.now
