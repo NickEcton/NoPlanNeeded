@@ -30,12 +30,9 @@ module.exports = function validateEventInput(data) {
       errors.picture = 'Event picture is required';
     }
 
-
-    //validation for the date?
-  
-    // if (Validator.isEmpty(data.date)) {
-    //   errors.text = 'Text date is required';
-    // }
+    if (Validator.isEmpty(data.eventDate)) {
+      errors.EventDate = 'Event date is required';
+    }
   
     return {
       errors,

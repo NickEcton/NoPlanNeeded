@@ -22,7 +22,7 @@ const EventSchema = new Schema({
     type: String, 
     required: true 
   },
-  EventDate: {
+  eventDate: {
     type: Date,
     required: true
   },
@@ -30,10 +30,10 @@ const EventSchema = new Schema({
     type: String,
     required: true 
   },
-  // Date: {
-  //   type: Date,
-  //   default: Date.now
-  // }
+  Date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 module.exports = Event = mongoose.model('event', EventSchema);
