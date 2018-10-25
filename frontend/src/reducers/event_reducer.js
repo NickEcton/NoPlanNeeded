@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import { RECEIVE_EVENTFUL, RECEIVE_GOOGLE,
+     RECEIVE_EVENTFUL_IMAGE, RECEIVE_GOOGLE_IMAGE } from '../actions/event_actions.js'
+=======
 import {  RECEIVE_EVENTFUL,
           RECEIVE_GOOGLE,
           RECEIVE_EVENTFUL_IMAGE,
@@ -7,22 +11,27 @@ import {  RECEIVE_EVENTFUL,
           RECEIVE_TOUR_IMAGE,
           RECEIVE_EVENT } from '../actions/event_action.js'
           
+>>>>>>> e2645fc66d2e605ec8baf937897d73aae77a2c24
 import eventfulNormalizer from '../components/normalizers/eventfulNormalizer.js'
 import googleNormalizer from '../components/normalizers/googleNormalizer.js'
 import hikingNormalizer from '../components/normalizers/hikingNormalizer.js'
 import predictNormalizer from '../components/normalizers/predictNormalizer.js'
 import tourNormalizer from '../components/normalizers/tourNormalizer.js'
 
-export const eventsReducer = (oldState = {}, action) => {
+const eventsReducer = (oldState = {}, action) => {
+    debugger
     Object.freeze(oldState)
     switch(action.type) {
         case RECEIVE_EVENTFUL:
-            return Object.assign({}, oldState, {event: eventfulNormalizer(action.events)})
+            return Object.assign({}, oldState, {event: eventfulNormalizer(action.events.data)})
         case RECEIVE_EVENTFUL_IMAGE:
-            return Object.assign({}, oldState, {[oldState.event.image]: action.image})
+            return Object.assign({}, oldState, Object.assign({}, oldState.event, {image: action.image.data.form_options.captcha.url}))
         case RECEIVE_GOOGLE:
-            return Object.assign({}, oldState, {event: googleNormalizer(action.events)})
+            return Object.assign({}, oldState, {event: googleNormalizer(action.events.data)})
         case RECEIVE_GOOGLE_IMAGE:
+<<<<<<< HEAD
+            return Object.assign({}, oldState, Object.assign({}, oldState.event, {image: action.image}))
+=======
             return Object.assign({}, oldState, {[oldState.event.image]: action.image})
         case RECEIVE_HIKING:
             return Object.assign({}, oldState, {event: hikingNormalizer(action.events)})
@@ -32,7 +41,10 @@ export const eventsReducer = (oldState = {}, action) => {
             return Object.assign({}, oldState, {[oldState.event.image]: action.image})
         case RECEIVE_EVENT:
             return Object.assign({}, oldState, {event: predictNormalizer(action.events)})
+>>>>>>> e2645fc66d2e605ec8baf937897d73aae77a2c24
         default:
             return oldState
     }
 }
+
+export default eventsReducer
