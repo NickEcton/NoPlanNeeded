@@ -1,4 +1,4 @@
-.session-modal-background {
+.modal-background {
     position: absolute;
     display: flex;
     align-items: center;
@@ -14,12 +14,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid #abb1b8;
     border-radius: 5px;
     box-sizing: content-box;
     padding: 50px;
     margin: auto;
-    width: 500px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
 }
 
 .session-form label {
@@ -28,6 +29,33 @@
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: left;
+}
+
+.session-input {
+    height: 40px;
+    width: 400px;
+    border-radius: 3px;
+    border: 1px solid #abb1b8;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.session-form button {
+    height: 40px;
+    width: 400px;
+    border-radius: 3px;
+    border: 1px solid #abb1b8;
+    background-color: #51a3fd;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.session-form button:hover {
+    cursor: pointer;
 }
 
 .modal-x {
@@ -40,4 +68,15 @@
 
 .modal-x:hover {
     cursor: pointer;
+}
+
+.session-form-div h1 {
+    color: #51a3fd;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.session-form-div a {
+    text-decoration: none;
+    color: #51a3fd;
 }

@@ -8,23 +8,20 @@ const EventSchema = new Schema({
   },
   title: {
     type: String, 
-
-  },
-  description: {
-    type: String,
     required: true
   },
-  lat: {
-    type: Number,
-    required: [true, "Latitude is required"]
+  description: {
+    //text 
+    type: Text,
+    required: true
   },
-  long: {
-    type: Number,
-    required: [true, "Longitude is required"]
+  location: {
+    type: Array,
+    required: [true, "Latitude is required"]
   },
   picture: {
     type: String, 
-    required: false 
+    required: true 
   },
   date: {
     type: Date,

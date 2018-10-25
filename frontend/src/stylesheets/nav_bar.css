@@ -88,6 +88,13 @@
     font-weight: 500;
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-left: 10px;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.nav-bar-div ul {
+    padding: 10px;
 }
 
 .nav-bar-div li:hover {

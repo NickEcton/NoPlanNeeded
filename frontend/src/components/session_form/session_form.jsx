@@ -19,9 +19,16 @@ class SessionForm extends React.Component {
 
   //updating the local state
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    if (field === 'email') {
+      return e => this.setState({
+        [field]: e.currentTarget.value,
+        name: e.currentTarget.value.split('@')[0]
+      })
+    } else {
+      return e => this.setState({
+        [field]: e.currentTarget.value
+      });
+    }
   }
 
 
@@ -35,7 +42,7 @@ class SessionForm extends React.Component {
   closeModal(e) {
     const modal = document.getElementById('session-modal')
     const xBtn = document.getElementById('modal-x')
-    if (e.target == modal || e.target == xBtn) {
+    if (e.target === modal || e.target === xBtn) {
       this.props.history.push('/');
     }
   }
@@ -56,12 +63,10 @@ class SessionForm extends React.Component {
   //need to render a conditional login / sign up inputs for everything depending on the form
 
   render() {
-    let signupNameInput;
-    let signupSecondPasswordInput; 
     if(this.props.formType === 'Sign up') {
       return (
         <div id='session-modal'
-          className="session-modal-background"
+          className="modal-background"
           onClick={this.closeModal}>
           <div className="session-form-div">
             <img id='modal-x'
@@ -72,37 +77,28 @@ class SessionForm extends React.Component {
             />
             <h1>Join No Plan Needed</h1>
             <form onSubmit={this.handleSubmit} className="session-form">
-              <label>Username:
-                <input type="text"
-                  value={this.state.name}
-                  onChange={this.update('name')}
-                  className="login-input"
-                />
-              </label>
               <label>
                 Email
                 <input type="text" 
                   value={this.state.email} 
                   onChange={this.update("email")} 
-                  className="login-input" />
+                  className="session-input" />
               </label>
               <label>
                 Password
                 <input type="password" 
                   value={this.state.password} 
                   onChange={this.update("password")} 
-                  className="login-input" />
+                  className="session-input" />
               </label>
               <label>Confirm Password
                 <input type="password"
                   value={this.state.password2}
                   onChange={this.update('password2')}
-                  className="login-input"
+                  className="session-input"
                 />
               </label>
-              <input className="session-submit" 
-                type="submit" 
-                value={this.props.formType} />
+              <button type='submit'>Sign up</button>
             </form>
             <h2>Already have an account?  {this.props.navLink}</h2>
           </div>
@@ -111,7 +107,7 @@ class SessionForm extends React.Component {
     } else {
       return (
         <div id='session-modal' 
-          className="session-modal-background" 
+          className="modal-background" 
           onClick={this.closeModal}>
           <div className="session-form-div">
             <img id='modal-x'
@@ -128,18 +124,23 @@ class SessionForm extends React.Component {
                   <input type="text" 
                     value={this.state.email} 
                     onChange={this.update("email")} 
-                    className="login-input" />
+                    className="session-input" />
                 </label>
                 <label>
                   Password
                   <input type="password" 
                     value={this.state.password} 
                     onChange={this.update("password")} 
-                    className="login-input"/>
+                    className="session-input"/>
                 </label>
-                <input className="session-submit" 
-                  type="submit" 
-                  value={this.props.formType} />
+                <button type='submit'>Log in</button>
+                <button
+                  onClick={() => this.props.processForm({
+                    email: 'demo@demo.com',
+                    password: 'password'
+                  })}>
+                  Log in as Guest
+                </button>
               </div>
             </form>
             <h2>Don't have an account? {this.props.navLink}</h2>

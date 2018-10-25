@@ -22,7 +22,6 @@ export default class NavBar extends React.Component {
             return (
                 <div className='nav-bar-div'>
                     <img className='nav-logo' src={npnlogo} alt='npn logo' />
-                    <h1>{this.props.currentUser}</h1>
                     <div className='drop-down'>
                         <img className='menu-icon' src={menuicon} alt='menu icon' />
                         <div className='drop-down-content'>
