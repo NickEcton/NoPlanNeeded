@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import '../../stylesheets/event_show.css'
 import modalx from '../../images/modal-x-btn.png';
 import concert from '../../images/audience-blur-bokeh-976866.jpg'
@@ -51,5 +50,4 @@ class EventShow extends React.Component {
   }
 }
 
-export default withRouter(EventShow);
-
+export default EventShow;

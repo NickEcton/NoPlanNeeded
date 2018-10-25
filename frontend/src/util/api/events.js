@@ -24,7 +24,7 @@ export const receiveEventful = (category, location) => {
 }
 
 export const receiveGooglePlaces = (type, location) => {
-  
+    debugger
     return (
         axios({
             method: "GET",
