@@ -38,7 +38,7 @@ export default class NavBar extends React.Component {
                                 </li>
                                 <li>
                                     <Link to='/history' >
-                                        Past Events
+                                        History
                                     </Link>
                                 </li>
                                 <li onClick={this.handleLogout}>

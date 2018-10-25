@@ -2,6 +2,8 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import '../../stylesheets/event_show.css'
 import modalx from '../../images/modal-x-btn.png';
+import concert from '../../images/audience-blur-bokeh-976866.jpg'
+import Map from './map';
 
 class EventShow extends React.Component {
   constructor(props) {
@@ -19,7 +21,6 @@ class EventShow extends React.Component {
   }
 
   render() {
-
     return(
       <div id='event-modal'
         className='modal-background'
@@ -31,7 +32,19 @@ class EventShow extends React.Component {
             alt="close modal button"
             onClick={this.closeModal}
           />
-          <h1>Event Page</h1>
+          <h1>Event Title</h1>
+          <div className='event-img-map'>
+            <div className='event-img'>
+              <img src={concert} />
+            </div>
+            <Map />
+          </div>
+          <div className='event-info'>
+          </div>
+          <div className='event-buttons'>
+            <button>Save Event</button>
+            <button>Get New Event</button>
+          </div>
         </div>
       </div>
     );
@@ -39,3 +52,4 @@ class EventShow extends React.Component {
 }
 
 export default withRouter(EventShow);
+

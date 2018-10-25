@@ -1,11 +1,39 @@
 .modal-background {
     position: absolute;
     display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: rgba(171, 177, 184, 0.5);
     z-index: 2;
     width: 100%;
     height: 100%;
+}
+
+.tabs-div {
+    width: 60%;
+    height: 40px;
+    display: flex;
+    margin-top: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+.tabs-div button {
+    width: 33.33%;
+    background-color: #51A3FD;
+    border: none;
+    border-top: 1px solid #abb1b8;
+    border-left: 1px solid #abb1b8;
+    border-right: 1px solid #abb1b8;
+    box-sizing: content-box;
+    border-radius: 5px 5px 0 0;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#current-tab {
+    background-color: white;
+    color: #51a3fd;
 }
 
 .preferences-div {
@@ -15,10 +43,11 @@
     flex-direction: column;
     justify-content: space-between;
     border: 1px solid #abb1b8;
-    border-radius: 5px;
-    box-sizing: content-box;
-    padding: 50px;
-    margin: auto;
-    width: 650px;
+    border-radius: 0 0 5px 5px;
+    box-sizing: border-box;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: auto;
+    width: 60%;
     height: 500px;
 }

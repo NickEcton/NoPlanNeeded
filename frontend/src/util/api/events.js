@@ -1,53 +1,47 @@
 const axios = require('axios');
 
 // Make a request for a user with a given ID
-export const receiveImage = (id) => {
+export const receiveEventfulImage = (id) => {
+ 
   return (
     axios({
       method: 'GET',
-      url: `/api/events/test/${id}`,
-      // headers: ???
-    })).then(res => console.log(res))
+      url: `/api/events/Eventful/${id}`
+    }))
 }
 
 // https://github.com/axios/axios/issues/853
 
 
-// export const receiveEventful = (category, location) => {
-//     return (
-//         $.ajax({
-//         method: "GET",
-//         url: `http://eventful.com/json/events/?app_key=VQSPqhzDdNq9cW4t&q=${category}&location=${location[0]},${location[1]}&date=Today`
-//         })
-//     )
-// }
+export const receiveEventful = (category, location) => {
+  
+    return (
+        axios({
+        method: "GET",
+        url: `/api/events/new/Eventful/${category}/${location}`
+        })
+    )
+}
 
-// export const receiveEventfulImage = (id) => {
-//     return (
-//         $.ajax({
-//         method: "GET",
-//         url: `http://eventful.com/json/events/?app_key=VQSPqhzDdNq9cW4t&id=${id}`
-//         })
-//     )
-// }
+export const receiveGooglePlaces = (type, location) => {
+  
+    return (
+        axios({
+            method: "GET",
+            url: `/api/events/new/GooglePlaces/${type}/${location}`
+        })
+    )
+}
 
-// export const receiveGooglePlaces = (type, location) => {
-//     return (
-//         $.ajax({
-//             method: "GET",
-//             url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDYpYUFcyLs-NsGwq7CYkPLFSnGcZ5unp4&location=${location[0]},${location[1]}&type=${type}`
-//         })
-//     )
-// }
-
-// export const receiveGoogleImage = (ref) => {
-//     return (
-//         $.ajax({
-//             method: "GET",
-//             url: `https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyDYpYUFcyLs-NsGwq7CYkPLFSnGcZ5unp4&photoreference=${ref}&maxheight=300`
-//         })
-//     )
-// }
+export const receiveGoogleImage = (ref) => {
+  debugger
+    return (
+        axios({
+            method: "GET",
+            url: `/api/events/GooglePlace/${ref}`
+        })
+    )
+}
 
 // export const receiveHiking = (location) => (
 //     $.ajax({
@@ -79,14 +73,6 @@ export const receiveImage = (id) => {
 
 
 
-export const RECEIVE_IMAGE = 'RECEIVE_IMAGE';
-
-export const receiveCurrentImage = id => {
-    return {
-      type: RECEIVE_IMAGE,
-      payload: id
-    };
-  };
 //testing axios
 // export const receiveImage = (id) => {
 //     axios

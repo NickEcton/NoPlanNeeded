@@ -1,5 +1,5 @@
 const googleNormalizer = (res) => {
-
+    
    function sample(array) {
        return array[Math.floor ( Math.random() * array.length )]
      }
@@ -7,15 +7,10 @@ const googleNormalizer = (res) => {
    const arr = res.results
    const event = sample(arr)
    const pojo = {"title": event.name, "date": null, "description": null,
-   "location": [event.geometry.location.lat, event.geometry.location.lng]}
+   "location": [event.geometry.location.lat, event.geometry.location.lng], "photoref": event.photos[0].photo_reference}
+     
 
-   //make second request
-   .then(res=> {
-       pojo["picture"] = res.images.image.thumb.url
-       return pojo
-   })
-
-
+     return pojo
 }
 
 export default googleNormalizer
