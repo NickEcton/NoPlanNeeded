@@ -16,18 +16,16 @@ export const receiveHiking = (location) => {
   return(
     axios({
       method: 'GET',
-      url: `/hiking/${location}`
+      url: `/api/events/hiking/${loc1}/${loc2}`
     })
   )
 }
 
 export const receiveTour = (location) => {
-   let loc1 = location[0]
-   let loc2 = location[1]
    return (
       axios({
         method: 'GET',
-        url: `/tour/${location}`
+        url: `/api/events/tour/${location}`
       })
    )
 }
@@ -38,11 +36,11 @@ export const receiveEvent = (location) => {
    return (
       axios({
         method: 'GET',
-        url: `/predict/${location}`,
+        url: `api/events/predict/${location}`,
         headers: {
           Authorization: 'Bearer wEdKqev9Hvs8OxVAzaIhZnqpTfhDjW'
         }
-      })
+      }).then(res => console.log(res))
    )
 }
 

@@ -6,7 +6,7 @@ import * as APIUtil from './util/session_api_util';
 //Components
 import configureStore from './store/store';
 import App from './App.js';
-import { receiveImage } from './util/api/events.js';
+import { receiveImage, receiveHiking, receiveTour, receiveEvent } from './util/api/events.js';
 
 
 import { logoutUser } from './util/session_api_util.js';
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
 
 
-  // Check for token in the window / local storage 
+  // Check for token in the window / local storage
   if (localStorage.jwtToken) {
     // Set auth token header auth
     APIUtil.setAuthToken(localStorage.jwtToken);
@@ -35,13 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  //testing 
-  window.store = store; 
+  //testing
+  window.store = store;
   window.getState = store.getState;
-  window.dispatch = store.dispatch; 
+  window.dispatch = store.dispatch;
   window.logout = logoutUser;
   window.receiveImage = receiveImage;
-
+  window.receiveHiking = receiveHiking;
+  window.receiveTour = receiveTour;
+  window.receiveEvent = receiveEvent;
 
   const root = document.getElementById('root');
   ReactDOM.render(<App store={store} />, root);

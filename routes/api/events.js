@@ -17,12 +17,10 @@ router.get('/test/:id', (req, res) => {
   })
 });
 
-router.get('/hiking/:location', (req, res) => {
-  let loc1 = req.params.location[0]
-  let loc2 = req.params.location[1]
+router.get('/hiking/:loc1/:loc2', (req, res) => {
   axios({
     method: 'GET',
-    url: `https://www.hikingproject.com/data/get-trails?lat=${loc1}&long=${loc2}&key=200376730-1322e2d6ca80c8e55d1a282398106088&maxDistance=200`
+    url: `https://www.hikingproject.com/data/get-trails?lat=${req.params.loc1}&lon=${req.params.loc2}&key=200376730-1322e2d6ca80c8e55d1a282398106088&maxDistance=200`
   }).then(response => {
     return res.send(response.data);
   })
