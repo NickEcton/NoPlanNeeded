@@ -6,7 +6,7 @@ import * as APIUtil from './util/session_api_util';
 //Components
 import configureStore from './store/store';
 import App from './App.js';
-import { receiveImage } from './util/api/events.js';
+import { receiveEventful, receiveEventfulImage, receiveGooglePlaces, receiveGoogleImage } from './actions/event_actions.js'
 
 
 import { logoutUser } from './util/session_api_util.js';
@@ -40,7 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch; 
   window.logout = logoutUser;
-  window.receiveImage = receiveImage;
+  window.receiveEventful = receiveEventful
+  window.receiveEventfulImage = receiveEventfulImage
+  window.receiveGooglePlaces = receiveGooglePlaces
+  window.receiveGoogleImage = receiveGoogleImage
 
 
   const root = document.getElementById('root');
