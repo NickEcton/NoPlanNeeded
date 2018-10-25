@@ -1,7 +1,8 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import '../../stylesheets/account.css'
 import modalx from '../../images/modal-x-btn.png';
+import avatar from '../../images/avatar.png';
 
 class Account extends React.Component {
   constructor(props) {
@@ -20,21 +21,28 @@ class Account extends React.Component {
 
   render() {
 
-    return (
-      <div id='account-modal'
-        className='modal-background'
-        onClick={this.closeModal}>
-        <div className='account-div'>
-          <img id='modal-x'
-            className="modal-x"
-            src={modalx}
-            alt="close modal button"
-            onClick={this.closeModal}
-          />
-          <h1>Account Page</h1>
+    return <div id="account-modal" className="modal-background" onClick={this.closeModal}>
+        <div className="tabs-div">
+          <Link id="current-tab" to="/account">
+            Account
+          </Link>
+          <Link to="/preferences">Preferences</Link>
+          <Link to="/history">History</Link>
         </div>
-      </div>
-    );
+        <div className="account-div">
+          <img id="modal-x" className="modal-x" src={modalx} alt="close modal button" onClick={this.closeModal} />
+          <div className='user-profile'>
+            <img className='avatar' src={avatar}/>
+            <div className='user-info'>
+              <h1>Username</h1>
+              <h1>email@email.com</h1>
+            </div>
+          </div>
+          <div className='recent-events'>
+            <h1>Recent Events</h1>
+          </div>
+        </div>
+      </div>;
   }
 }
 

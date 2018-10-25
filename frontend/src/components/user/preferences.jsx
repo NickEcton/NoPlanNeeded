@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "../../stylesheets/preferences.css";
 import modalx from "../../images/modal-x-btn.png";
 
@@ -25,6 +25,17 @@ class Preferences extends React.Component {
         className="modal-background"
         onClick={this.closeModal}
       >
+        <div className="tabs-div">
+          <Link to='/account'>
+            Account
+          </Link>
+          <Link id="current-tab" to='/preferences'>
+            Preferences
+          </Link>
+          <Link to='/history'>
+            History
+          </Link>
+        </div>
         <div className="preferences-div">
           <img
             id="modal-x"
