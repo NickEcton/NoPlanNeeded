@@ -1,61 +1,55 @@
 import * as ApiUtil from '../util/api/events.js'
-export const RECEIVE_EVENTFUL = 'RECEIVE_EVENTFUL'
-export const RECEIVE_GOOGLE = 'RECEIVE_GOOGLE'
-export const RECEIVE_GOOGLE_IMAGE = 'RECEIVE_GOOGLE_IMAGE'
-export const RECEIVE_EVENTFUL_IMAGE = 'RECEIVE_EVENTFUL_IMAGE'
+import googleNormalizer from '../components/normalizers/googleNormalizer.js'
+import eventfulNormalizer from '../components/normalizers/eventfulNormalizer.js';
+
 export const RECEIVE_HIKING = 'RECEIVE_HIKING'
 export const RECEIVE_TOUR = 'RECEIVE_TOUR'
 export const RECEIVE_TOUR_IMAGE = 'RECEIVE_TOUR_IMAGE'
 export const RECEIVE_EVENT = 'RECEIVE_EVENT'
+export const RECEIVE_ONE_EVENT = 'RECEIVE_ONE_EVENT'
 
-
-
-const receiveMultipleEventful = (events) => {
-    return ({
-        type: RECEIVE_EVENTFUL,
-        events
-    })
-}
-
-const receiveTheEventfulImage = (image) => ({
-    type: RECEIVE_EVENTFUL_IMAGE,
-    image
+const receiveOneEvent = (event) => ({
+    type: RECEIVE_ONE_EVENT,
+    event
 })
 
-const receiveMultipleGoogle = (events) => ({
-    type: RECEIVE_GOOGLE,
-    events
-})
 
-const receiveTheGoogleImage = (image) => ({
-    type: RECEIVE_GOOGLE_IMAGE,
-    image
-})
-
-export const receiveEventful = (category, location) => dispatch => {
-   return ApiUtil.receiveEventful(category, location).then((res) => {
-        dispatch(receiveMultipleEventful(res))
-    })
-}
 
 export const receiveGooglePlaces = (type, location) => dispatch => {
-    return ApiUtil.receiveGooglePlaces(type, location).then((res) => {
-        dispatch(receiveMultipleGoogle(res))
+
+    return ApiUtil.receiveGooglePlaces(type, location).then((res) => { 
+        let pojo = googleNormalizer(res)
+        
+        if (pojo.photoref) {
+        
+            ApiUtil.receiveGoogleImage(pojo.photoref).then((res) => {
+            
+                pojo["photo"] = res
+                dispatch(receiveOneEvent(pojo))
+            })
+        } else {
+            dispatch(receiveOneEvent(pojo))
+        }
     })
 }
 
-export const receiveEventfulImage = (id) => dispatch => {
-    return ApiUtil.receiveEventfulImage(id).then((res) => {
-        debugger
-        dispatch(receiveTheEventfulImage(res))
-    })
-}
 
-export const receiveGoogleImage = (id) => dispatch => {
-    return ApiUtil.receiveGoogleImage(id).then((res) => {
-        dispatch(receiveTheGoogleImage(res))
-    })
-}
+export const receiveEventful = (category, location) => dispatch => {
+    return ApiUtil.receiveEventful(category, location).then((res) => {
+        
+        let pojo = eventfulNormalizer(res)       
+
+        ApiUtil.receiveEventfulImage(pojo.id).then((res) => {
+            
+            if (res.data.images) {
+                pojo["images"] = res.data.images[0]
+            }
+            dispatch(receiveOneEvent(pojo))
+        })
+     })
+ }
+
+
 
 // export const receiveHiking = (location) => dispatch => {
 //     return ApiUtil.receiveHiking(location).then((res) => {
