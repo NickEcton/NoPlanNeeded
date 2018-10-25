@@ -45,9 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
   window.receiveGooglePlaces = receiveGooglePlaces
   window.receiveGoogleImage = receiveGoogleImage
 
+<<<<<<< HEAD
 
   window.login = loginUser;
 
+=======
+>>>>>>> 259a632ebffd134661d65abc80a4ce6aad66bcd6
   const root = document.getElementById('root');
   ReactDOM.render(<App store={store} />, root);
 });

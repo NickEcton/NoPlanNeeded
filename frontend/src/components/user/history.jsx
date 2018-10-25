@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "../../stylesheets/history.css";
 import modalx from "../../images/modal-x-btn.png";
 
@@ -25,6 +25,17 @@ class History extends React.Component {
         className="modal-background"
         onClick={this.closeModal}
       >
+        <div className='tabs-div'>
+          <Link to='/account'>
+            Account
+          </Link>
+          <Link to='/preferences'>
+            Preferences
+          </Link>
+          <Link id="current-tab" to='/history'>
+            History
+          </Link>
+        </div>
         <div className="history-div">
           <img
             id="modal-x"
