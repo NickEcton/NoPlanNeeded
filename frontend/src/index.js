@@ -9,7 +9,7 @@ import App from './App.js';
 import { receiveImage } from './util/api/events.js';
 
 
-import { logoutUser } from './util/session_api_util.js';
+import { logoutUser, loginUser } from './util/session_api_util.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch; 
   window.logout = logoutUser;
   window.receiveImage = receiveImage;
-
+  window.login = loginUser;
 
   const root = document.getElementById('root');
   ReactDOM.render(<App store={store} />, root);
