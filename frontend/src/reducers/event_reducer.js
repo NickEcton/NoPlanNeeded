@@ -20,11 +20,15 @@ const eventsReducer = (oldState = {}, action) => {
         case RECEIVE_EVENTFUL:
             return Object.assign({}, oldState, {event: eventfulNormalizer(action.events.data)})
         case RECEIVE_EVENTFUL_IMAGE:
-            return Object.assign({}, oldState, Object.assign({}, oldState.event, {image: action.image.data.form_options.captcha.url}))
+            return Object.assign({}, oldState, Object.assign(oldState.event, {image: action.image.data.images}))
         case RECEIVE_GOOGLE:
             return Object.assign({}, oldState, {event: googleNormalizer(action.events.data)})
         case RECEIVE_GOOGLE_IMAGE:
+<<<<<<< HEAD
+            return Object.assign({}, oldState, Object.assign({}, oldState.event, {image: action.image}))
+=======
             return Object.assign({}, oldState, {[oldState.event.image]: action.image})
+>>>>>>> 259a632ebffd134661d65abc80a4ce6aad66bcd6
         case RECEIVE_HIKING:
             return Object.assign({}, oldState, {event: hikingNormalizer(action.events)})
         case RECEIVE_TOUR:
