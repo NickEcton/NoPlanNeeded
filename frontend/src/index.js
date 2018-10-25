@@ -9,7 +9,7 @@ import App from './App.js';
 import { receiveEventful, receiveEventfulImage, receiveGooglePlaces, receiveGoogleImage } from './actions/event_actions.js'
 
 
-import { logoutUser } from './util/session_api_util.js';
+import { logoutUser, loginUser } from './util/session_api_util.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
@@ -40,11 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch; 
   window.logout = logoutUser;
+<<<<<<< HEAD
   window.receiveEventful = receiveEventful
   window.receiveEventfulImage = receiveEventfulImage
   window.receiveGooglePlaces = receiveGooglePlaces
   window.receiveGoogleImage = receiveGoogleImage
 
+=======
+  window.receiveImage = receiveImage;
+  window.login = loginUser;
+>>>>>>> e2645fc66d2e605ec8baf937897d73aae77a2c24
 
   const root = document.getElementById('root');
   ReactDOM.render(<App store={store} />, root);

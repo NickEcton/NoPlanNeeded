@@ -33,11 +33,11 @@ Not feeling picky? NoPlanNeeded also has a simple generator feature that require
 ---
 ![Welcome Modal](frontend/src/images/logged-out-welcome-modal.png)
 
-![Logged Out Homepage](images/logged-out-homepage.png)
+![Logged Out Homepage](frontend/src/images/logged-out-homepage.png)
 
-![Logged In Homepage](images/logged-in-homepage.png)
+![Logged In Homepage](frontend/src/images/logged-in-homepage.png)
 
-![Event Show Page](images/activity-show-modal.png)
+![Event Show Page](frontend/src/images/activity-show-modal.png)
 
 ### Bonus Features
 - [ ] Users that dislike an event, will not be suggested that event
