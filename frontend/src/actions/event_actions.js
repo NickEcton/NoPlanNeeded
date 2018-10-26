@@ -30,7 +30,9 @@ export const pickRandomEvent = (pojo) => {
         return array[Math.floor ( Math.random() * array.length )]
         }
 
-        let choice = sample(options.sample(pojo.categories))
+        let category = sample(pojo.categories)
+        let choice = sample(options[category])
+        // let choice = sample(options.sample(pojo.categories))
 
         if (["concerts", "sports", "comedy"].includes(choice)) {
             receiveEventful(pojo.location, choice)
