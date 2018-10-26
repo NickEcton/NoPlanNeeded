@@ -6,14 +6,18 @@ const googleNormalizer = (res) => {
 
    const arr = res.data.results
    const event = sample(arr)
+<<<<<<< HEAD
   //  debugger;
+=======
+   debugger;
+>>>>>>> origin
    const pojo = {"title": event.name, "date": null, "description": null,
    "location": [event.geometry.location.lat, event.geometry.location.lng]}
-   
+
    if (event.photos) {
        pojo["photoref"] = event.photos[0].photo_reference
    }
-     
+
 
      return pojo
 }

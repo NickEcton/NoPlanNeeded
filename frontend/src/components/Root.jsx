@@ -12,6 +12,7 @@ import EventShowContainer from './event_show/event_show_container.js';
 import AccountContainer from './user/account_container.js';
 import HistoryContainer from './user/history_container.js';
 import PreferencesContainer from './user/preferences_container.js';
+import AboutContainer from './user/about_container.js';
 
 
 const Root = () => {
@@ -26,6 +27,7 @@ const Root = () => {
             <Route exact path = "/account" component={AccountContainer} />
             <Route exact path = "/history" component={HistoryContainer} />
             <Route exact path = "/preferences" component={PreferencesContainer} />
+            <Route exact path = "/about" component={AboutContainer} />
         </Switch>
       </div>
 

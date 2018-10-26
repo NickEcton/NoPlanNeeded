@@ -1,5 +1,5 @@
 import { RECEIVE_ONE_EVENT } from '../actions/event_actions.js'
-          
+
 
 
 const eventsReducer = (oldState = {}, action) => {

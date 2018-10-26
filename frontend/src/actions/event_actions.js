@@ -14,21 +14,36 @@ const receiveOneEvent = (event) => ({
 })
 
 export const pickRandomEvent = (pojo) => {
-    let arr = []
-    if (pojo.category === null) {
-        arr = [
-            receiveHiking(pojo.location),
-            receiveTour(pojo.location),
-            receiveEvent(pojo.location)
-        ]
-    } else {
-        arr = [
-        receiveGooglePlaces(pojo.location, pojo.category),
-        receiveEventful(pojo.location, pojo.category)
-        ]
-    }
+    //pojo has a location and an array of catgegories
+    //build pojo of subarrays
+    let options = { "family-friendly": ["amusement_park","bowling_alley","zoo","aquarium","movie_theater","shopping_mall"],
+                    "concerts": ["concerts"],
+                    "outdoors": ["park", "campground", "hiking", "tour"],
+                    "adult": ["bar", "casino", "nightclub", "comedy"],
+                    "historic": ["art_gallery", "museum", "library"],
+                    "food": ["cafe", "restaurant"],
+                    "sports": ["sports"],
+                    "random": ["random"]
+                }
+    
+    function sample(array) {
+        return array[Math.floor ( Math.random() * array.length )]
+        }
 
-    return arr[[Math.floor ( Math.random() * arr.length )]]
+        let choice = sample(options.sample(pojo.categories))
+
+        if (["concerts", "sports", "comedy"].includes(choice)) {
+            receiveEventful(pojo.location, choice)
+        } else if (choice === "tour") {
+            receiveTour(pojo.location)
+        } else if (choice === "hiking") {
+            receiveHiking(pojo.location)
+        } else if (choice === "random") {
+            receiveEvent(pojo.location)
+        } else {
+            receiveGooglePlaces(pojo.location, choice)
+        }
+
 }
 
 export const receiveGooglePlaces = (location, category) => dispatch => {
@@ -56,7 +71,7 @@ export const receiveEventful = (location, category) => dispatch => {
     return ApiUtil.receiveEventful(category, location).then((res) => {
         
         let pojo = eventfulNormalizer(res)       
-        debugger
+        
         ApiUtil.receiveEventfulImage(pojo.id).then((res) => {
 
             pojo["location"] = [res.data.latitude, res.data.longitude]
@@ -81,13 +96,11 @@ export const receiveHiking = (location) => dispatch => {
    
 export const receiveTour = (location) => dispatch => {
     
-    
     return ApiUtil.receiveTour(location).then((res) => {
         
         let pojo = tourNormalizer(res)
         
-
-        if (pojo.pic_cp) {
+        if (pojo.pic_uuid) {
             
             ApiUtil.receiveTourImage(pojo.pic_cp, pojo.pic_uuid).then((res) => {
                 
