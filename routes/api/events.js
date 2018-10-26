@@ -9,7 +9,7 @@ const validateEventInput = require('../../validations/events');
 
 //create an event when the users 'prefer this event'
 router.post('/create', passport.authenticate('jwt', { session: false }), (req, res) => {
-  // debugger;
+
   //model level validations 
   const { errors, isValid } = validateEventInput(req.body);
   if (!isValid) {
@@ -57,7 +57,6 @@ router.get('/Eventful/:id', (req, res) => {
 });
 
 router.get('/new/Eventful/:category/:location', (req, res) => {
-  debugger
   axios({
     method: 'GET',
     url: `http://eventful.com/json/events/?app_key=VQSPqhzDdNq9cW4t&q=${req.params.category}&location=${req.params.location}&date=Today`,
@@ -76,15 +75,57 @@ router.get(`/GooglePlace/:ref`, (req, res) => {
 })
 
 router.get('/new/GooglePlaces/:type/:location', (req, res) => {
-  debugger
+
   axios({
     method: "GET",
     url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDYpYUFcyLs-NsGwq7CYkPLFSnGcZ5unp4&location=${req.params.location}&type=${req.params.type}&radius=10000`
   }).then(response => {
-    debugger
+  
     res.send(response.data)
   })
 })
+
+router.get('/hiking/:loc1/:loc2', (req, res) => {
+  axios({
+    method: 'GET',
+    url: `https://www.hikingproject.com/data/get-trails?lat=${req.params.loc1}&lon=${req.params.loc2}&key=200376730-1322e2d6ca80c8e55d1a282398106088&maxDistance=200`
+  }).then(response => {
+    res.send(response.data);
+  })
+ });
+ 
+ router.get('/tour/:location', (req, res) => {
+  axios({
+    method: 'GET',
+    url: `https://api.izi.travel/mtg/objects/search?form=short&type=tour&includes=location&except=city,country,publisher&languages=en&lat_lon=${req.params.location}&radius=10000&api_key=ff1c5c19-1fd2-4383-a810-3cebbf5819e6`
+  }).then(response => {
+    res.send(response.data);
+  })
+ });
+ 
+ router.get('/predict/:location', (req, res) => {
+  axios({
+    method: 'GET',
+    url: `https://api.predicthq.com/v1/events/?limit=5&within=15km@${req.params.location}`,
+    headers: {
+      Authorization: 'Bearer wEdKqev9Hvs8OxVAzaIhZnqpTfhDjW'
+    }
+  }).then(response => {
+    res.send(response.data);
+  })
+ });
+ 
+ router.get('/tourImage/:getreq', (req, res) => {
+  axios({
+    method: 'GET',
+    url: `https://api.predicthq.com/v1/events/?limit=5&within=15km@${req.params.location}`,
+    headers: {
+      Authorization: 'Bearer wEdKqev9Hvs8OxVAzaIhZnqpTfhDjW'
+    }
+  }).then(response => {
+    res.send(response.data);
+  })
+ });
 
 module.exports = router;
 

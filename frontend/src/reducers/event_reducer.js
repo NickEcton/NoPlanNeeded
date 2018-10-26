@@ -7,10 +7,10 @@ import {  RECEIVE_EVENTFUL,
           RECEIVE_HIKING,
           RECEIVE_TOUR,
           RECEIVE_TOUR_IMAGE,
-          RECEIVE_EVENT } from '../actions/event_actions.js'
+          RECEIVE_EVENT,
+          RECEIVE_ONE_EVENT } from '../actions/event_actions.js'
           
-import eventfulNormalizer from '../components/normalizers/eventfulNormalizer.js'
-import googleNormalizer from '../components/normalizers/googleNormalizer.js'
+
 import hikingNormalizer from '../components/normalizers/hikingNormalizer.js'
 import predictNormalizer from '../components/normalizers/predictNormalizer.js'
 import tourNormalizer from '../components/normalizers/tourNormalizer.js'
@@ -27,7 +27,6 @@ const eventsReducer = (oldState = {}, action) => {
             return Object.assign({}, oldState, {event: googleNormalizer(action.events.data)})
         case RECEIVE_GOOGLE_IMAGE:
             return Object.assign({}, oldState, Object.assign({}, oldState.event, {image: action.image}))
-            return Object.assign({}, oldState, {[oldState.event.image]: action.image})
         case RECEIVE_HIKING:
             return Object.assign({}, oldState, {event: hikingNormalizer(action.events)})
         case RECEIVE_TOUR:

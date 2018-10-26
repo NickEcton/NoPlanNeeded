@@ -1,11 +1,10 @@
 const googleNormalizer = (res) => {
-    //debugger;
-    //debugger
+
    function sample(array) {
        return array[Math.floor ( Math.random() * array.length )]
      }
 
-   const arr = res.results
+   const arr = res.data.results
    const event = sample(arr)
    const pojo = {"title": event.name, "date": null, "description": null,
    "location": [event.geometry.location.lat, event.geometry.location.lng]}
