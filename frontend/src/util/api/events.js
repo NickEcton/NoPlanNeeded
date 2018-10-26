@@ -76,7 +76,6 @@ export const receiveEvent = (location) => {
 }
    
 export const receiveTourImage = (pic_cp, pic_uuid) => {
-    debugger
     return (
         axios({
             method: 'GET',

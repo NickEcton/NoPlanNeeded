@@ -64,11 +64,11 @@ export const receiveTour = (location) => dispatch => {
         
 
         if (pojo.pic_cp) {
-            debugger
+            
             ApiUtil.receiveTourImage(pojo.pic_cp, pojo.pic_uuid).then((res) => {
-                debugger
+                
                 pojo["picture"] = res
-                debugger
+                
                 dispatch(receiveOneEvent(pojo))
             })
 
