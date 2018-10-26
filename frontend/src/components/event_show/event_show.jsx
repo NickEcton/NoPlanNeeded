@@ -64,7 +64,6 @@ class EventShow extends React.Component {
         'historic',
         'food',
         'sports'
-
       ]
     });
   }
@@ -131,7 +130,9 @@ class EventShow extends React.Component {
               </div>
             </div>
             <div className="event-info">
-              <h2>{this.props.event.description}</h2>
+              <textarea>
+                {this.props.event.description}
+              </textarea>
             </div>
             <div className="event-buttons">
               <button>Save Event</button>
