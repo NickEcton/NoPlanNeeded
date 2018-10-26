@@ -14,7 +14,16 @@ const receiveOneEvent = (event) => ({
 })
 
 export const pickRandomEvent = (pojo) => {
-    let arr = [
+    let arr = []
+    if (pojo.category === null) {
+        arr = [
+            receiveHiking(pojo.location),
+            receiveTour(pojo.location),
+            receiveEvent(pojo.location)
+        ]
+    }
+    
+    arr = [
         receiveGooglePlaces(pojo.location, pojo.category),
         receiveEventful(pojo.location, pojo.category),
         receiveHiking(pojo.location),
