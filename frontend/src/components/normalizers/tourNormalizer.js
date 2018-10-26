@@ -1,17 +1,19 @@
 const tourNormalizer = (res) => {
 
-  const rand_tour = res[Math.floor(Math.random() * res.length)];
+  const rand_tour = res.data[Math.floor(Math.random() * res.data.length)];
 
   const title = rand_tour.title;
   const location =  [rand_tour.location.latitude, rand_tour.location.longitude];
   const date = new Date().toDateString();
+  let pic_cp = null
+  let pic_uuid = null
 
-  const pic_cp = rand_tour.content_provider.uuid;
-  const pic_uuid = rand_tour.images[0].uuid;
-  const pic_size = "_800x600.jpg"
-  const pic_get_req = "https://media.izi.travel/".concat(pic_cp).concat("/").concat(pic_uuid).concat(pic_size)
+  if (rand_tour.images) {
+    pic_cp = rand_tour.content_provider.uuid;
+    pic_uuid = rand_tour.images[0].uuid;
+  }
 
-  const picture = pic_get_req;
+
 
   const description = rand_tour.category.concat(rand_tour.type);
 
@@ -19,7 +21,8 @@ const tourNormalizer = (res) => {
     title: title,
     location: location,
     date: date,
-    picture: picture,
+    pic_cp: pic_cp,
+    pic_uuid: pic_uuid,
     description: description
   }
 
