@@ -9,7 +9,7 @@ const validateEventInput = require('../../validations/events');
 
 //create an event when the users 'prefer this event'
 router.post('/create', passport.authenticate('jwt', { session: false }), (req, res) => {
-
+  debugger;
   //model level validations 
   const { errors, isValid } = validateEventInput(req.body);
   if (!isValid) {

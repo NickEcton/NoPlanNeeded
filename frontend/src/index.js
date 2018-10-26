@@ -7,14 +7,13 @@ import * as APIUtil from './util/session_api_util';
 import configureStore from './store/store';
 import App from './App.js';
 import { receiveEventful, receiveGooglePlaces, receiveTour, receiveHiking, receiveEvent, pickRandomEvent } from './actions/event_actions.js'
-import { createPastEvents } from './util/past_events.js';
+import { createPastEvents } from './util/api/past_events.js';
 
 
 import { logoutUser, loginUser } from './util/session_api_util.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
-
 
   // Check for token in the window / local storage 
   if (localStorage.jwtToken) {
