@@ -95,10 +95,12 @@ router.get('/hiking/:loc1/:loc2', (req, res) => {
  });
  
  router.get('/tour/:location', (req, res) => {
+   
   axios({
     method: 'GET',
     url: `https://api.izi.travel/mtg/objects/search?form=short&type=tour&includes=location&except=city,country,publisher&languages=en&lat_lon=${req.params.location}&radius=10000&api_key=ff1c5c19-1fd2-4383-a810-3cebbf5819e6`
   }).then(response => {
+    
     res.send(response.data);
   })
  });
@@ -115,13 +117,11 @@ router.get('/hiking/:loc1/:loc2', (req, res) => {
   })
  });
  
- router.get('/tourImage/:getreq', (req, res) => {
+ router.get('/tour/image/:pic_cp/:pic_uuid', (req, res) => {
+   debugger
   axios({
     method: 'GET',
-    url: `https://api.predicthq.com/v1/events/?limit=5&within=15km@${req.params.location}`,
-    headers: {
-      Authorization: 'Bearer wEdKqev9Hvs8OxVAzaIhZnqpTfhDjW'
-    }
+    url: `https://media.izi.travel/${req.params.pic_cp}/${req.params.pic_uuid}_800x600.jpg`
   }).then(response => {
     res.send(response.data);
   })

@@ -1,6 +1,7 @@
 import * as ApiUtil from '../util/api/events.js'
 import googleNormalizer from '../components/normalizers/googleNormalizer.js'
 import eventfulNormalizer from '../components/normalizers/eventfulNormalizer.js';
+import tourNormalizer from '../components/normalizers/tourNormalizer.js';
 
 export const RECEIVE_HIKING = 'RECEIVE_HIKING'
 export const RECEIVE_TOUR = 'RECEIVE_TOUR'
@@ -50,27 +51,43 @@ export const receiveEventful = (category, location) => dispatch => {
  }
 
 
-// export const receiveHiking = (location) => dispatch => {
-//     return ApiUtil.receiveHiking(location).then((res) => {
-//       dispatch(receiveMultipleHiking(res))
-//     })
-// }
+export const receiveHiking = (location) => dispatch => {
+    return ApiUtil.receiveHiking(location).then((res) => {
+       
+})}
    
-// export const receiveTour = (location) => dispatch => {
-//     return ApiUtil.receiveTour(location).then((res) => {
-//         dispatch(receiveMultipleTour(res))
-//     })
-// }
+export const receiveTour = (location) => dispatch => {
+    
+    return ApiUtil.receiveTour(location).then((res) => {
+        
+        let pojo = tourNormalizer(res)
+        
 
-// export const receiveTourImage = (img_get_req) => {
-//     return ApiUtil.receiveTourImage(img_get_req).then((res) => {
-//         dispatch(receiveTheTourImage(res))
-//     })
-// }
+        if (pojo.pic_cp) {
+            debugger
+            ApiUtil.receiveTourImage(pojo.pic_cp, pojo.pic_uuid).then((res) => {
+                debugger
+                pojo["picture"] = res
+                debugger
+                dispatch(receiveOneEvent(pojo))
+            })
 
-// export const receiveEvent = (location) => dispatch => {
-//     return ApiUtil.receiveEvent(location).then((res) => {
-//         dispatch(receiveMultipleEvent(res))
-//     })
-// }
+        } else {
+            dispatch(receiveOneEvent(pojo))
+        }
+
+    })
+}
+
+export const receiveTourImage = (img_get_req) => dispatch => {
+    return ApiUtil.receiveTourImage(img_get_req).then((res) => {
+        // dispatch(receiveTheTourImage(res))
+    })
+}
+
+export const receiveEvent = (location) => dispatch => {
+    return ApiUtil.receiveEvent(location).then((res) => {
+        // dispatch(receiveMultipleEvent(res))
+    })
+}
 

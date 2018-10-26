@@ -32,7 +32,7 @@ export const receiveGooglePlaces = (type, location) => {
 }
 
 export const receiveGoogleImage = (ref) => {
-  debugger
+  
     return (
         axios({
             method: "GET",
@@ -67,7 +67,7 @@ export const receiveEvent = (location) => {
     return (
     axios({
         method: 'GET',
-        url: `api/events/predict/${location}`,
+        url: `/api/events/predict/${location}`,
         headers: {
         Authorization: 'Bearer wEdKqev9Hvs8OxVAzaIhZnqpTfhDjW'
         }
@@ -75,9 +75,12 @@ export const receiveEvent = (location) => {
     )
 }
    
-export const receiveTourImage = (img_get_req) => (
-axios({
-    method: 'GET',
-    url: `/tourImage/${img_get_req}`
-})
-)
+export const receiveTourImage = (pic_cp, pic_uuid) => {
+    debugger
+    return (
+        axios({
+            method: 'GET',
+            url: `/api/events/tour/image/${pic_cp}/${pic_uuid}`
+        })
+    )
+}
