@@ -36,7 +36,7 @@ class EventShow extends React.Component {
             lat: position.coords.latitude, 
             lng: position.coords.longitude
           })
-          debugger
+          // debugger
           this.getEvent();
         },
         //On failure...
@@ -52,7 +52,10 @@ class EventShow extends React.Component {
   }
 
   getEvent() {
-    this.props.receiveGooglePlaces('a', [this.state.lat, this.state.lng]);
+    this.props.fetchEvent({
+      location: [this.state.lat, this.state.lng],
+      category: null
+    });
   }
 
   componentDidMount() {
