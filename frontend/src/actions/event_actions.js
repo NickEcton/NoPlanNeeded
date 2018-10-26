@@ -15,7 +15,6 @@ const receiveOneEvent = (event) => ({
 
 export const pickRandomEvent = (pojo) => {
     let arr = []
-
     if (pojo.category === null) {
         arr = [
             receiveHiking(pojo.location),
