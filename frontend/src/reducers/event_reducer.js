@@ -17,10 +17,6 @@ const eventsReducer = (oldState = {}, action) => {
             return Object.assign({}, oldState, { event: action.event})
         case RECEIVE_HIKING:
             return Object.assign({}, oldState, {event: hikingNormalizer(action.events)})
-        case RECEIVE_TOUR:
-            return Object.assign({}, oldState, {event: tourNormalizer(action.events)})
-        case RECEIVE_TOUR_IMAGE:
-            return Object.assign({}, oldState, {[oldState.event.image]: action.image})
         case RECEIVE_EVENT:
             return Object.assign({}, oldState, {event: predictNormalizer(action.events)})
         default:
