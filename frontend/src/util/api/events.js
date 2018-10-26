@@ -2,7 +2,7 @@ const axios = require('axios');
 
 
 export const receiveEventfulImage = (id) => {
- 
+ debugger
   return (
     axios({
       method: 'GET',
@@ -12,7 +12,7 @@ export const receiveEventfulImage = (id) => {
 
 
 export const receiveEventful = (category, location) => {
-  
+  debugger
     return (
         axios({
         method: "GET",
@@ -22,7 +22,7 @@ export const receiveEventful = (category, location) => {
 }
 
 export const receiveGooglePlaces = (type, location) => {
-    //debugger
+    debugger
     return (
         axios({
             method: "GET",
@@ -32,6 +32,7 @@ export const receiveGooglePlaces = (type, location) => {
 }
 
 export const receiveGoogleImage = (ref) => {
+    debugger
     return (
         axios({
             method: "GET",
@@ -41,8 +42,10 @@ export const receiveGoogleImage = (ref) => {
 }
 
 export const receiveHiking = (location) => {
+    debugger
     let loc1 = location[0]
     let loc2 = location[1]
+    
     return(
       axios({
         method: 'GET',
@@ -52,6 +55,7 @@ export const receiveHiking = (location) => {
 }
    
 export const receiveTour = (location) => {
+    debugger
     return (
     axios({
         method: 'GET',
@@ -61,8 +65,7 @@ export const receiveTour = (location) => {
 }
    
 export const receiveEvent = (location) => {
-    let loc1 = location[0]
-    let loc2 = location[1]
+    debugger
     return (
     axios({
         method: 'GET',
@@ -70,11 +73,12 @@ export const receiveEvent = (location) => {
         headers: {
         Authorization: 'Bearer wEdKqev9Hvs8OxVAzaIhZnqpTfhDjW'
         }
-    }).then(res => console.log(res))
+    })
     )
 }
    
 export const receiveTourImage = (pic_cp, pic_uuid) => {
+    debugger
     return (
         axios({
             method: 'GET',

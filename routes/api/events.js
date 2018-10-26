@@ -57,10 +57,12 @@ router.get('/Eventful/:id', (req, res) => {
 });
 
 router.get('/new/Eventful/:category/:location', (req, res) => {
+  debugger
   axios({
     method: 'GET',
     url: `http://eventful.com/json/events/?app_key=VQSPqhzDdNq9cW4t&q=${req.params.category}&location=${req.params.location}&date=Today`,
   }).then(response => {
+    debugger
     res.send(response.data) 
   })
 })
@@ -75,12 +77,12 @@ router.get(`/GooglePlace/:ref`, (req, res) => {
 })
 
 router.get('/new/GooglePlaces/:type/:location', (req, res) => {
-
+  debugger
   axios({
     method: "GET",
     url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDYpYUFcyLs-NsGwq7CYkPLFSnGcZ5unp4&location=${req.params.location}&type=${req.params.type}&radius=10000`
   }).then(response => {
-  
+  debugger
     res.send(response.data)
   })
 })
