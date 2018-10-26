@@ -1,5 +1,6 @@
 const hikingNormalizer = (res) => {
-  const trails = res.trails
+  
+  const trails = res.data.trails
   const rand_trail = trails[Math.floor(Math.random() * trails.length)];
 
   const title = rand_trail.name;

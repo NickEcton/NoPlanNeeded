@@ -1,5 +1,6 @@
 const predictNormalizer = (res) => {
-  const events = res.results
+  
+  const events = res.data.results
   const rand_event = events[Math.floor(Math.random() * events.length)];
 
   const title = rand_event.title;

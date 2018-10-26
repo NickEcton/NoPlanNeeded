@@ -1,15 +1,22 @@
 const axios = require('axios');
 
 
-export const createPastEvents = (events) => {
+export const createPastEvents = (pastEvents) => {
   return (
     axios({
       method: 'POST',
       url: `/api/events/create`,
-      data: events
+      data: pastEvents
     }))
 }
 
+export const editPastEvents = (pastEvents) => {
+  return (
+    axios({
+      method: 'GET',
+      url: `/api/events/history`
+    }))
+}
 // export const createPastEvents = (events) => {
 //     return (
 //       axios({

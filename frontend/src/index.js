@@ -6,7 +6,8 @@ import * as APIUtil from './util/session_api_util';
 //Components
 import configureStore from './store/store';
 import App from './App.js';
-import { receiveEventful, receiveGooglePlaces, receiveTour} from './actions/event_actions.js'
+import { receiveEventful, receiveGooglePlaces, receiveTour, receiveHiking, receiveEvent, pickRandomEvent } from './actions/event_actions.js'
+import { createPastEvents } from './util/past_events.js';
 
 
 import { logoutUser, loginUser } from './util/session_api_util.js';
@@ -43,8 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
   window.receiveEventful = receiveEventful
   window.receiveGooglePlaces = receiveGooglePlaces
   window.receiveTour = receiveTour
+  window.receiveHiking = receiveHiking
+  window.receiveEvent = receiveEvent
+  window.pickRandomEvent = pickRandomEvent
+  window.createPastEvents = createPastEvents;
 
 
   const root = document.getElementById('root');
   ReactDOM.render(<App store={store} />, root);
 });
+

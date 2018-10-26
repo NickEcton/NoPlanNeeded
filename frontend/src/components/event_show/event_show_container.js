@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import EventShow from './event_show';
 import {
+    receiveEventful,
     receiveGooglePlaces
 } from '../../actions/event_actions';
 
@@ -13,9 +14,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         receiveEventful: () => dispatch(receiveEventful()),
-        receiveEventfulImage: () => dispatch(receiveEventfulImage()),
-        receiveGooglePlaces: (type, location) => dispatch(receiveGooglePlaces(type, location)),
-        receiveGoogleImage: (id) => dispatch(receiveGoogleImage(id)) 
+        receiveGooglePlaces: (type, location) => dispatch(receiveGooglePlaces(type, location))
     };
 };
 
