@@ -1,10 +1,7 @@
 import { connect } from 'react-redux';
 import EventShow from './event_show';
 import {
-    receiveEventful,
-    receiveGooglePlaces,
-    receiveEventfulImage,
-    receiveGoogleImage
+    receiveGooglePlaces
 } from '../../actions/event_actions';
 
 const mapStateToProps = state => {
