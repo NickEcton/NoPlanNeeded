@@ -118,7 +118,7 @@ router.get('/hiking/:loc1/:loc2', (req, res) => {
  });
  
  router.get('/tour/image/:pic_cp/:pic_uuid', (req, res) => {
-   
+
   axios({
     method: 'GET',
     url: `https://media.izi.travel/${req.params.pic_cp}/${req.params.pic_uuid}_800x600.jpg`

@@ -18,17 +18,6 @@ const receiveOneEvent = (event) => ({
 
 export const receiveGooglePlaces = (type, location) => dispatch => {
 
-    return ApiUtil.receiveGooglePlaces(type, location).then((res) => {
-        dispatch(receiveMultipleGoogle(res))
-    })
-}
-
-export const receiveEventfulImage = (id) => dispatch => {
-    return ApiUtil.receiveEventfulImage(id).then((res) => {
-        // //debugger
-        dispatch(receiveTheEventfulImage(res))
-
-
     return ApiUtil.receiveGooglePlaces(type, location).then((res) => { 
         let pojo = googleNormalizer(res)
         
