@@ -1,7 +1,9 @@
 const Validator = require('validator');
 const isEmpty = require('./is-empty');
 
-module.exports = function validateEventInput(data) {
+
+
+module.exports = function validateHistoryInput(data) {
     let errors = {};
   
     data.title = !isEmpty(data.title) ? data.title : '';

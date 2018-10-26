@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const EventSchema = new Schema({
+const HistorySchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'users'
@@ -36,4 +36,4 @@ const EventSchema = new Schema({
   }
 });
 
-module.exports = Event = mongoose.model('event', EventSchema);
+module.exports = History = mongoose.model('history', HistorySchema);
