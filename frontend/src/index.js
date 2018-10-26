@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.receiveGooglePlaces = receiveGooglePlaces
   window.receiveTour = receiveTour
 
+
   const root = document.getElementById('root');
   ReactDOM.render(<App store={store} />, root);
 });
