@@ -12,7 +12,7 @@ router.post('/create', passport.authenticate('jwt', { session: false }), (req, r
 });
 
 
-//get the preferences 
+//get the all the preferences 
 router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
         // debugger;
     Preference.find({userId: req.user.id})
@@ -22,31 +22,19 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
 
 
 //edit the preferences 
-router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.patch('/edit', passport.authenticate('jwt', { session: false }), (req, res) => {
     // debugger;
-Preference.find({userId: req.user.id})
-    .then(preferences => res.json(preferences))
-    .catch(err => res.status(404).json({ nopreferencesfound: 'No preferences found' }));
+
+    const updatedPreference = {
+        userId: req.user.id,
+        sports: req.body.sports, 
+        hiking: req.body.hiking, 
+        movies: req.body.movies
+    }
+
+    Preference.findOneAndUpdate({userId: req.user.id}, updatedPreference, {new: true})
+        .then(preference => res.json(preference))
+        .catch(err => res.status(404).json({ nopreferencesfound: 'No preferences found' }));
 });
-
-
-    //model level validations 
-    // const { errors, isValid } = validateEventInput(req.body);
-    // if (!isValid) {
-    //   return res.status(400).json(errors);
-    // }
-    
-    // Preference.findOne({ userId: req.user.id })
-    // .then(preference => {
-    //   if (preference) {
-    //  //if the event is already saved, render an error 
-    //     return res.status(400).json({email: "Event is already saved"})
-    //   } else {
-
-
-        
-            
-    //         //testing 
-    // router.get('/', (req, res) => res.json({msg: 'this is the post route'}))
             
 module.exports = router;
