@@ -33,8 +33,8 @@ class EventShow extends React.Component {
       navigator.geolocation.getCurrentPosition(
         // On success...
         position => {
-          this.setState({ 
-            lat: position.coords.latitude, 
+          this.setState({
+            lat: position.coords.latitude,
             lng: position.coords.longitude
           })
           // debugger
