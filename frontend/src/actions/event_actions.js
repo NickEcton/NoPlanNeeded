@@ -14,13 +14,20 @@ const receiveOneEvent = (event) => ({
 })
 
 export const pickRandomEvent = (pojo) => {
-    let arr = [
+    let arr = []
+
+    if (pojo.category === null) {
+        arr = [
+            receiveHiking(pojo.location),
+            receiveTour(pojo.location),
+            receiveEvent(pojo.location)
+        ]
+    } else {
+        arr = [
         receiveGooglePlaces(pojo.location, pojo.category),
-        receiveEventful(pojo.location, pojo.category),
-        receiveHiking(pojo.location),
-        receiveTour(pojo.location),
-        receiveEvent(pojo.location)
-    ]
+        receiveEventful(pojo.location, pojo.category)
+        ]
+    }
 
     return arr[[Math.floor ( Math.random() * arr.length )]]
 }
@@ -50,8 +57,10 @@ export const receiveEventful = (location, category) => dispatch => {
     return ApiUtil.receiveEventful(category, location).then((res) => {
         
         let pojo = eventfulNormalizer(res)       
-
+        debugger
         ApiUtil.receiveEventfulImage(pojo.id).then((res) => {
+
+            pojo["location"] = [res.data.latitude, res.data.longitude]
             
             if (res.data.images) {
                 pojo["images"] = res.data.images[0]
