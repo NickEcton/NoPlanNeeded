@@ -1,5 +1,5 @@
 const predictNormalizer = (res) => {
-  debugger
+  
   const events = res.data.results
   const rand_event = events[Math.floor(Math.random() * events.length)];
 

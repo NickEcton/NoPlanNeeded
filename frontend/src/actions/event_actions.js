@@ -26,7 +26,7 @@ export const pickRandomEvent = (pojo) => {
 }
 
 export const receiveGooglePlaces = (location, category) => dispatch => {
-    debugger
+    
     return ApiUtil.receiveGooglePlaces(category, location).then((res) => { 
         let pojo = googleNormalizer(res)
         
@@ -46,7 +46,7 @@ export const receiveGooglePlaces = (location, category) => dispatch => {
 
 
 export const receiveEventful = (location, category) => dispatch => {
-    debugger
+    
     return ApiUtil.receiveEventful(category, location).then((res) => {
         
         let pojo = eventfulNormalizer(res)       
@@ -63,7 +63,7 @@ export const receiveEventful = (location, category) => dispatch => {
 
 
 export const receiveHiking = (location) => dispatch => {
-    debugger
+    
     return ApiUtil.receiveHiking(location).then((res) => {
 
         let pojo = hikingNormalizer(res)
@@ -72,7 +72,7 @@ export const receiveHiking = (location) => dispatch => {
 })}
    
 export const receiveTour = (location) => dispatch => {
-    debugger
+    
     
     return ApiUtil.receiveTour(location).then((res) => {
         
@@ -97,7 +97,7 @@ export const receiveTour = (location) => dispatch => {
 
 
 export const receiveEvent = (location) => dispatch => {
-    debugger
+    
     return ApiUtil.receiveEvent(location).then((res) => {
         
         let pojo = predictNormalizer(res)
