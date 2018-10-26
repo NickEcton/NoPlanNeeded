@@ -22,7 +22,7 @@ export const receiveEventful = (category, location) => {
 }
 
 export const receiveGooglePlaces = (type, location) => {
-  
+    //debugger
     return (
         axios({
             method: "GET",
@@ -32,7 +32,7 @@ export const receiveGooglePlaces = (type, location) => {
 }
 
 export const receiveGoogleImage = (ref) => {
-  debugger
+  //debugger
     return (
         axios({
             method: "GET",

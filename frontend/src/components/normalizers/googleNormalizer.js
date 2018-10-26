@@ -1,5 +1,5 @@
 const googleNormalizer = (res) => {
-    
+
    function sample(array) {
        return array[Math.floor ( Math.random() * array.length )]
      }

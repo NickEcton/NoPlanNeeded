@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.receiveEventful = receiveEventful
   window.receiveGooglePlaces = receiveGooglePlaces
 
+
   const root = document.getElementById('root');
   ReactDOM.render(<App store={store} />, root);
 });
