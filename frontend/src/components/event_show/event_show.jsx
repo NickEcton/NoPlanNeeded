@@ -16,6 +16,7 @@ class EventShow extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.initGeolocation = this.initGeolocation.bind(this);
     this.getEvent = this.getEvent.bind(this);
+    this.getNewEvent = this.getNewEvent.bind(this);
   }
 
   closeModal(e) {
@@ -54,22 +55,63 @@ class EventShow extends React.Component {
   getEvent() {
     this.props.fetchEvent({
       location: [this.state.lat, this.state.lng],
+      categories: [
+        'random', 
+        'family-friendly', 
+        'concerts', 
+        'outdoors', 
+        'adult', 
+        'historic',
+        'food',
+        'sports'
+
+      ]
+    });
+  }
+
+  getNewEvent() {
+    document.getElementById('refresh-loader').classList.remove('hidden')
+    this.props.fetchEvent({
+      location: [this.state.lat, this.state.lng],
       category: null
     });
+
   }
 
   componentDidMount() {
     this.initGeolocation();
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.event !== prevProps.event) {
+      document.getElementById("refresh-loader").classList.add("hidden");
+    }
+  }
+
   render() {
     if (this.props.event) {
+
+      let eventPicture = this.props.event.picture;
+
+      if (this.props.event.picture === 'not available') {
+        // debugger
+        eventPicture = concert;
+      }
+
+      if (!this.props.event.picture) {
+        // debugger 
+        eventPicture = concert;
+      }
+
+      
+      
       return (
         <div
-          id="event-modal"
-          className="modal-background"
-          onClick={this.closeModal}
+        id="event-modal"
+        className="modal-background"
+        onClick={this.closeModal}
         >
+          <div id='refresh-loader' className='loader hidden'></div>
           <div className="event-show-div">
             <img
               id="modal-x"
@@ -81,20 +123,19 @@ class EventShow extends React.Component {
             <h1>{this.props.event.title}</h1>
             <div className="event-img-map">
               <div className="event-img">
-                <img src={concert} />
+                <img id='event-image'
+                  src={eventPicture} />
               </div>
               <div className="event-map">
                 <Map location={this.props.event.location} />
               </div>
             </div>
             <div className="event-info">
-              <h1>{this.props.event.description}</h1>
+              <h2>{this.props.event.description}</h2>
             </div>
             <div className="event-buttons">
               <button>Save Event</button>
-              <button
-                onClick={this.getEvent}
-              >
+              <button onClick={this.getNewEvent}>
                 Get New Event
               </button>
             </div>
@@ -102,7 +143,7 @@ class EventShow extends React.Component {
         </div>
       );
     } else {
-      return <div>Loading...</div>;
+      return <div className='loader'></div>;
     }
   }
 }
