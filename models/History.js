@@ -12,19 +12,19 @@ const HistorySchema = new Schema({
   },
   description: {
     type: String,
-    required: true
+    // required: true
   },
   location: {
     type: Array,
-    required: [true, "Latitude is required"]
+    // required: [true, "Latitude is required"]
   },
   picture: {
     type: String, 
-    required: true 
+    // required: true 
   },
   eventDate: {
     type: String,
-    required: true
+    // required: true
   },
   userId: {
     type: String,

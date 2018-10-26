@@ -16,8 +16,9 @@ const getAllPastEvents = (pastEvents) => ({
 });
 
 export const createPastEvents = (pastEvent) => dispatch => {
+    // debugger;
     return pastEventUtil.createPastEvents(pastEvent)
-        .then(pastEvent => dispatch(getPastEvents(pastEvent)))
+        .then(pastEvent => dispatch(getPastEvents(pastEvent.data)))
 }
 
 export const fetchPastEvents = () => dispatch => {
