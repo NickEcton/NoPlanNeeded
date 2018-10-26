@@ -1,5 +1,3 @@
-// import { RECEIVE_EVENTFUL, RECEIVE_GOOGLE,
-//      RECEIVE_EVENTFUL_IMAGE, RECEIVE_GOOGLE_IMAGE } from '../actions/event_actions.js'
 import {  RECEIVE_EVENTFUL,
           RECEIVE_GOOGLE,
           RECEIVE_EVENTFUL_IMAGE,
@@ -16,7 +14,6 @@ import predictNormalizer from '../components/normalizers/predictNormalizer.js'
 import tourNormalizer from '../components/normalizers/tourNormalizer.js'
 
 const eventsReducer = (oldState = {}, action) => {
-    // //debugger
     Object.freeze(oldState)
     switch(action.type) {
         case RECEIVE_EVENTFUL:
