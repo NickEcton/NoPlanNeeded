@@ -36,10 +36,11 @@ router.post('/create', passport.authenticate('jwt', { session: false }), (req, r
 });
   
 //history route
+//find the past events that the user selected and sorting them by eventDate
 router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
 History.find({userId: req.user.id})
     .sort({ eventDate: -1 })
-    .then(events => res.json(events))
+    .then(events => { pastEvents = res.json(events)})
     .catch(err => res.status(404).json({ noeventsfound: 'No events found' }));
 }
 );

@@ -5,31 +5,18 @@ export const createPastEvents = (pastEvents) => {
   return (
     axios({
       method: 'POST',
-      url: `/api/events/create`,
+      url: `/api/history/create`,
       data: pastEvents
     }))
 }
 
-export const editPastEvents = (pastEvents) => {
+
+//fetching past events via res.body 
+export const fetchPastEvents = () => {
   return (
     axios({
       method: 'GET',
-      url: `/api/events/history`
+      url: `/api/history`
     }))
 }
-// export const createPastEvents = (events) => {
-//     return (
-//       axios({
-//         method: 'POST',
-//         url: `/api/events/create`
-//       }))
-//   }
 
-
-//   export const createPastEvents = (events) => {
-//     return (
-//       axios({
-//         method: 'POST',
-//         url: `/api/events/create`
-//       }))
-//   }
