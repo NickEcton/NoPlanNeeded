@@ -2,11 +2,10 @@ import * as ApiUtil from '../util/api/events.js'
 import googleNormalizer from '../components/normalizers/googleNormalizer.js'
 import eventfulNormalizer from '../components/normalizers/eventfulNormalizer.js';
 import tourNormalizer from '../components/normalizers/tourNormalizer.js';
+import hikingNormalizer from '../components/normalizers/hikingNormalizer.js';
+import predictNormalizer from '../components/normalizers/predictNormalizer.js';
 
-export const RECEIVE_HIKING = 'RECEIVE_HIKING'
-export const RECEIVE_TOUR = 'RECEIVE_TOUR'
-export const RECEIVE_TOUR_IMAGE = 'RECEIVE_TOUR_IMAGE'
-export const RECEIVE_EVENT = 'RECEIVE_EVENT'
+
 export const RECEIVE_ONE_EVENT = 'RECEIVE_ONE_EVENT'
 
 const receiveOneEvent = (event) => ({
@@ -14,11 +13,21 @@ const receiveOneEvent = (event) => ({
     event
 })
 
+export const pickRandomEvent = (pojo) => {
+    let arr = [
+        receiveGooglePlaces(pojo.location, pojo.category),
+        receiveEventful(pojo.location, pojo.category),
+        receiveHiking(pojo.location),
+        receiveTour(pojo.location),
+        receiveEvent(pojo.location)
+    ]
 
+    return arr[[Math.floor ( Math.random() * arr.length )]]
+}
 
-export const receiveGooglePlaces = (type, location) => dispatch => {
-
-    return ApiUtil.receiveGooglePlaces(type, location).then((res) => { 
+export const receiveGooglePlaces = (location, category) => dispatch => {
+    
+    return ApiUtil.receiveGooglePlaces(category, location).then((res) => { 
         let pojo = googleNormalizer(res)
         
         if (pojo.photoref) {
@@ -36,7 +45,8 @@ export const receiveGooglePlaces = (type, location) => dispatch => {
 }
 
 
-export const receiveEventful = (category, location) => dispatch => {
+export const receiveEventful = (location, category) => dispatch => {
+    
     return ApiUtil.receiveEventful(category, location).then((res) => {
         
         let pojo = eventfulNormalizer(res)       
@@ -53,11 +63,16 @@ export const receiveEventful = (category, location) => dispatch => {
 
 
 export const receiveHiking = (location) => dispatch => {
+    
     return ApiUtil.receiveHiking(location).then((res) => {
-       
+
+        let pojo = hikingNormalizer(res)
+
+        dispatch(receiveOneEvent(pojo))    
 })}
    
 export const receiveTour = (location) => dispatch => {
+    
     
     return ApiUtil.receiveTour(location).then((res) => {
         
@@ -80,15 +95,14 @@ export const receiveTour = (location) => dispatch => {
     })
 }
 
-export const receiveTourImage = (img_get_req) => dispatch => {
-    return ApiUtil.receiveTourImage(img_get_req).then((res) => {
-        // dispatch(receiveTheTourImage(res))
-    })
-}
 
 export const receiveEvent = (location) => dispatch => {
+    
     return ApiUtil.receiveEvent(location).then((res) => {
-        // dispatch(receiveMultipleEvent(res))
+        
+        let pojo = predictNormalizer(res)
+
+        dispatch(receiveOneEvent(pojo))
     })
 }
 
