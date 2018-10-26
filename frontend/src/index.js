@@ -45,7 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.receiveGooglePlaces = receiveGooglePlaces
   window.receiveGoogleImage = receiveGoogleImage
 
+
   // window.receiveImage = receiveImage;
+
+
+
   window.login = loginUser;
 
   const root = document.getElementById('root');

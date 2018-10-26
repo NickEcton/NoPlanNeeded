@@ -9,13 +9,8 @@ class HomePage extends React.Component {
 	constructor(props) {
 		super(props);
 
-    this.handleAPICall = this.handleAPICall.bind(this);
   }
   
-  handleAPICall() {
-    this.props.receiveGooglePlaces('sports', [-32, 120]);
-  }
-
 	render() {
 
 		return (
@@ -23,7 +18,6 @@ class HomePage extends React.Component {
         <Link to='/event'>
           <img className='event-button' src={npnlogo}
             alt='random event button'
-            onClick={this.handleAPICall}
           />
         </Link>
       </div>

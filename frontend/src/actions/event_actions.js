@@ -39,7 +39,7 @@ export const receiveEventful = (category, location) => dispatch => {
 }
 
 export const receiveGooglePlaces = (type, location) => dispatch => {
-    debugger
+    //debugger
     return ApiUtil.receiveGooglePlaces(type, location).then((res) => {
         dispatch(receiveMultipleGoogle(res))
     })
@@ -47,7 +47,7 @@ export const receiveGooglePlaces = (type, location) => dispatch => {
 
 export const receiveEventfulImage = (id) => dispatch => {
     return ApiUtil.receiveEventfulImage(id).then((res) => {
-        // debugger
+        // //debugger
         dispatch(receiveTheEventfulImage(res))
     })
 }
