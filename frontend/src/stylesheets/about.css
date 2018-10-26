@@ -36,12 +36,12 @@
     color: #51a3fd;
 }
 
-.preferences-div {
+.about-div {
     background-color: white;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     border: 1px solid #abb1b8;
     border-radius: 0 0 5px 5px;
     box-sizing: border-box;
@@ -50,4 +50,10 @@
     margin-bottom: auto;
     width: 60%;
     height: 500px;
+}
+
+.about-text {
+    width: 60%;
+    text-align: left;
+    align-self: center;
 }

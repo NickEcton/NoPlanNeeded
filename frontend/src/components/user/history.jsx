@@ -35,6 +35,9 @@ class History extends React.Component {
           <Link id="current-tab" to='/history'>
             History
           </Link>
+          <Link to='/about'>
+            About Us
+          </Link>
         </div>
         <div className="history-div">
           <img
