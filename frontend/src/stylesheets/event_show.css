@@ -13,7 +13,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     border: 1px solid #abb1b8;
     border-radius: 5px;
     box-sizing: content-box;
@@ -26,20 +26,18 @@
 .event-show-div h1 {
     font-size: 24px;
     font-weight: 600;
-    color: #3074c0;
+    color: #51a3fd;
     margin-bottom: 10px;
 }
 
 .event-img-map {
     display: flex;
-    border: 1px solid red;
     justify-content: space-between;
 }
 
 .event-img {
     height: 300px;
-    width: 300px;
-    border: 1px solid red;
+    width: 350px;
     display: flex;
     align-items: center;
 }
@@ -49,4 +47,29 @@
     max-height: 100%;
     width: auto;
     height: auto;
+}
+
+.event-map {
+    border: 1px solid black;
+}
+
+.event-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.event-buttons button {
+    border: none;
+    background-color: #51a3fd;
+    color: white;
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.event-buttons button:hover {
+    cursor: pointer;
 }

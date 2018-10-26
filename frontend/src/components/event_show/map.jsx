@@ -1,16 +1,23 @@
 import React from 'react';
 import { withGoogleMap, GoogleMap } from 'react-google-maps';
 
-const GoogleMapExample = withGoogleMap(props => (
-  <GoogleMap
-    defaultCenter={{ lat: 37.792132, lng: -122.408547 }}
-    defaultZoom={15}
-  >
-  </GoogleMap>
-));
 class Map extends React.Component {
 
   render() {
+    // debugger
+    const lat = this.props.location[0];
+    const lng = this.props.location[1];
+
+    const GoogleMapExample = withGoogleMap(props => (
+      <GoogleMap
+        defaultCenter={{ 
+          lat, 
+          lng
+        }}
+        defaultZoom={20}
+      >
+      </GoogleMap>
+    ));
 
     return (
       <div>
