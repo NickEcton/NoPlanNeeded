@@ -28,6 +28,7 @@ class Account extends React.Component {
           </Link>
           <Link to="/preferences">Preferences</Link>
           <Link to="/history">History</Link>
+          <Link to="/about">About Us</Link>
         </div>
         <div className="account-div">
           <img id="modal-x" className="modal-x" src={modalx} alt="close modal button" onClick={this.closeModal} />

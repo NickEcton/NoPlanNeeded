@@ -41,6 +41,11 @@ export default class NavBar extends React.Component {
                                         History
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link to='/about' >
+                                        About Us
+                                    </Link>
+                                </li>
                                 <li onClick={this.handleLogout}>
                                     Logout
                                 </li>

@@ -1,9 +1,8 @@
 import { RECEIVE_ONE_EVENT } from '../actions/event_actions.js'
-          
+
 
 
 const eventsReducer = (oldState = {}, action) => {
-
     Object.freeze(oldState)
     switch(action.type) {
         case RECEIVE_ONE_EVENT:

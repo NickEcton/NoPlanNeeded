@@ -7,13 +7,13 @@ import * as APIUtil from './util/session_api_util';
 import configureStore from './store/store';
 import App from './App.js';
 import { receiveEventful, receiveGooglePlaces, receiveTour, receiveHiking, receiveEvent, pickRandomEvent } from './actions/event_actions.js'
+import { createPastEvents, fetchPastEvents } from './actions/past_events_actions.js';
 
 
 import { logoutUser, loginUser } from './util/session_api_util.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
-
 
   // Check for token in the window / local storage 
   if (localStorage.jwtToken) {
@@ -46,6 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.receiveHiking = receiveHiking
   window.receiveEvent = receiveEvent
   window.pickRandomEvent = pickRandomEvent
+
+  //testing for fetching / creating old events
+  window.createPastEvents = createPastEvents;
+  window.fetchPastEvents = fetchPastEvents;
 
 
   const root = document.getElementById('root');

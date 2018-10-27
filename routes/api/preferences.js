@@ -27,9 +27,14 @@ router.patch('/edit', passport.authenticate('jwt', { session: false }), (req, re
 
     const updatedPreference = {
         userId: req.user.id,
-        sports: req.body.sports, 
-        hiking: req.body.hiking, 
-        movies: req.body.movies
+        concerts: req.body.concerts, 
+        familyFriendly: req.body.familyFriendly, 
+        food: req.body.food,
+        historic: req.body.historic,
+        outdoors: req.body.outdoors,
+        sports: req.body.sports,
+        random: req.body.random
+
     }
 
     Preference.findOneAndUpdate({userId: req.user.id}, updatedPreference, {new: true})
