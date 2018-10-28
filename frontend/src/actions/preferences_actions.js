@@ -14,7 +14,6 @@ const getPreference = (preference) => ({
 });
 
 export const fetchPreference = () => dispatch => {
-    // debugger;
     return preferencesAPIUtil.fetchPreference()
         .then(preference => dispatch(getPreference(preference.data)))
 }

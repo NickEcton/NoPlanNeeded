@@ -1,8 +1,6 @@
 const axios = require('axios');
 
 
-
-
 //fetching a user's preferences via res.body 
 export const fetchPreference = () => {
     return (

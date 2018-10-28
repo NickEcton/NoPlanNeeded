@@ -12,12 +12,22 @@ const PreferenceSchema = new Schema({
       type: String, 
       required: true 
     }, 
+    adult: {
+      type: Boolean, 
+      required: false,
+      default: true  
+    },
     concerts: {
       type: Boolean, 
       required: false,
       default: true   
     },
     familyFriendly: {
+      type: Boolean, 
+      required: false, 
+      default: true 
+    },
+    food: {
       type: Boolean, 
       required: false, 
       default: true 
