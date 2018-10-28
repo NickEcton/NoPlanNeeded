@@ -36,7 +36,7 @@ const pastEventsReducer = (state = {}, action) => {
     switch(action.type) {
         case RECEIVE_PAST_EVENTS:
             let prevEvent = normalizeEvent(action.pastEvent);
-            let newState = newState = merge({}, state, prevEvent);
+            let newState = merge({}, state, prevEvent);
             // let newState = merge({}, state, {[action.pastEvent._id] : action.pastEvent})
             return newState;
         case RECEIVE_ALL_PAST_EVENTS: 
