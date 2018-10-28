@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Logout user
       store.dispatch(APIUtil.logoutUser());
       // Redirect to login
-      window.location.href = '/login';
+      // window.location.href = '/login';
     }
   }
 
