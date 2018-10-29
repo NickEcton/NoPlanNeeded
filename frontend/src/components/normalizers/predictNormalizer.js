@@ -11,7 +11,7 @@ const predictNormalizer = (res) => {
   let normalized_event = {
     title: title,
     location: location,
-    date: date,
+    eventDate: date,
     picture: "not available",
     description: description
   }
