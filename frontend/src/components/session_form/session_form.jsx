@@ -65,7 +65,28 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+    // if(this.props.formType === "Log In"){
+    //   this.props.processForm(user)
+    // }
+
+    // if(this.props.formType === 'Sign up'){
+    //   this.props.processForm(user).then(
+    //     () => this.props.createPreference()
+    //   )
+      // this.props.createPreference();
   }
+
+
+
+
+  componentDidUpdate(prevProps){
+    console.log(prevProps.session)
+    if(prevProps.session != this.props.session) {
+      this.props.createPreference()
+    }
+  }
+
+
 
   closeModal(e) {
     const modal = document.getElementById('session-modal')

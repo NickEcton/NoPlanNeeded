@@ -7,6 +7,8 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateRegisterInput = require('../../validations/register');
 const validateLoginInput = require('../../validations/login');
+
+const Preference = require('../../models/Preference');
 //backend routes 
 // adds user routes to /users/current
 
@@ -41,21 +43,27 @@ router.post('/register', (req, res) => {
             email: req.body.email,
             password: req.body.password
           })
+
+          const newPreference = new Preference({userId: newUser.id})
+          newPreference.save();
           //salt the password (hash)
           //set the password to the salted hash
           //save user and then  
+
+          //preferences are now part of the payload
           bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(newUser.password, salt, (err, hash) => {
               if (err) throw err;
               newUser.password = hash;
               newUser.save()
                 .then(user => {
-                    const payload = {id: user.id, name: user.name, email: user.email};
+                    const payload = {id: user.id, name: user.name, email: user.email, preference: newPreference};
                     //sending to the frontend jwt (servers can vertify integrity of the user)
                     jsonwebtoken.sign(payload, keys.secretOrKey, {expiresIn: 3600}, (err, token) => {
                         res.json({
                             success: true, 
-                            token: 'Bearer ' + token
+                            token: 'Bearer ' + token,
+                            
                         })
                     })
                 })
