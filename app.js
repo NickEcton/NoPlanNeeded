@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const users = require('./routes/api/users.js');
 const preferences = require('./routes/api/preferences');
 const events = require('./routes/api/events.js');
+const history = require('./routes/api/history.js');
+
+
 const passport = require('passport');
 require('./config/passport')(passport);
 //creates an express server
@@ -40,6 +43,7 @@ app.get("/", (req, res) => res.send("Hello World"));
 app.use("/api/users", users);
 app.use("/api/preferences", preferences);
 app.use("/api/events", events);
+app.use("/api/history", history);
 
 
 //work on port 5000 or heroku port 

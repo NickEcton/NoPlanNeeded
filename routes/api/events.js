@@ -4,47 +4,8 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const axios = require('axios');
 
-const Event = require('../../models/Event');
-const validateEventInput = require('../../validations/events');
-
-//create an event when the users 'prefer this event'
-router.post('/create', passport.authenticate('jwt', { session: false }), (req, res) => {
-
-  //model level validations 
-  const { errors, isValid } = validateEventInput(req.body);
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
-  
-  // let date = Date(req.body.eventDate);
-  //check if the event is already saved
-  Event.findOne({ userId: req.user.id , title: req.body.title})
-  .then(event => {
-    if (event) {
-   //if the event is already saved, render an error 
-      return res.status(400).json({email: "Event is already saved"})
-    } else {
-      const newEvent = new Event({
-            title: req.body.title,
-            description: req.body.description,
-            location: req.body.location, 
-            picture: req.body.picture, 
-            eventDate: req.body.eventDate,
-            userId: req.user.id
-      })
-    newEvent.save().then(event => res.json(event)).catch(err => console.log(err));;
-  }
-}).catch(err => console.log(err));
-});
-
-//history routes 
-router.get('/history', passport.authenticate('jwt', { session: false }), (req, res) => {
-Event.find({userId: req.user.id})
-    .sort({ eventDate: -1 })
-    .then(events => res.json(events))
-    .catch(err => res.status(404).json({ noeventsfound: 'No events found' }));
-}
-);
+// const Event = require('../../models/History');
+// const validateEventInput = require('../../validations/history');
 
 //work on this! 
 router.get('/Eventful/:id', (req, res) => {

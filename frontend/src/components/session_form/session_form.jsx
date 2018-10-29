@@ -14,6 +14,9 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.autoFill = this.autoFill.bind(this);
+    this.idx = 0;
+    this.idx2 = 0;
   }
 
 
@@ -31,8 +34,33 @@ class SessionForm extends React.Component {
     }
   }
 
+  //autotype the demo user and password
+  autoFill() {
+    const speed = 70;
+    const text1 = "demo@demo.com";
+    const text2 = "password";
 
-  //processForm is either signup a user or logging in an user 
+    if (this.idx < text1.length) {
+      this.setState({
+        email: this.state.email + text1.charAt(this.idx)
+      }, () => {
+        this.idx++;
+        setTimeout(this.autoFill, speed);
+      });
+    } else if (this.idx2 < text2.length) {
+      this.setState({
+        password: this.state.password + text2.charAt(this.idx2)
+      }, () => {
+        this.idx2++;
+        setTimeout(this.autoFill, speed);
+      });
+    } else {
+      const user = Object.assign({}, this.state);
+      this.props.processForm(user)
+    }
+  }
+
+  //processForm is either signup a user or logging in an user
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -79,16 +107,16 @@ class SessionForm extends React.Component {
             <form onSubmit={this.handleSubmit} className="session-form">
               <label>
                 Email
-                <input type="text" 
-                  value={this.state.email} 
-                  onChange={this.update("email")} 
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update("email")}
                   className="session-input" />
               </label>
               <label>
                 Password
-                <input type="password" 
-                  value={this.state.password} 
-                  onChange={this.update("password")} 
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
                   className="session-input" />
               </label>
               <label>Confirm Password
@@ -106,14 +134,14 @@ class SessionForm extends React.Component {
       )
     } else {
       return (
-        <div id='session-modal' 
-          className="modal-background" 
+        <div id='session-modal'
+          className="modal-background"
           onClick={this.closeModal}>
           <div className="session-form-div">
             <img id='modal-x'
-              className="modal-x" 
-              src={modalx} 
-              alt="close modal button" 
+              className="modal-x"
+              src={modalx}
+              alt="close modal button"
               onClick={this.closeModal}
             />
             <h1>Log In to No Plan Needed</h1>
@@ -121,24 +149,21 @@ class SessionForm extends React.Component {
               <div className="session-form">
                 <label>
                   Email
-                  <input type="text" 
-                    value={this.state.email} 
-                    onChange={this.update("email")} 
+                  <input type="text"
+                    value={this.state.email}
+                    onChange={this.update("email")}
                     className="session-input" />
                 </label>
                 <label>
                   Password
-                  <input type="password" 
-                    value={this.state.password} 
-                    onChange={this.update("password")} 
+                  <input type="password"
+                    value={this.state.password}
+                    onChange={this.update("password")}
                     className="session-input"/>
                 </label>
                 <button type='submit'>Log in</button>
                 <button
-                  onClick={() => this.props.processForm({
-                    email: 'demo@demo.com',
-                    password: 'password'
-                  })}>
+                  onClick={this.autoFill}>
                   Log in as Guest
                 </button>
               </div>
