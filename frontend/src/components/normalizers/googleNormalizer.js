@@ -6,7 +6,7 @@ const googleNormalizer = (res) => {
 
    const arr = res.data.results
    const event = sample(arr)
-   debugger;
+  //  debugger;
    const pojo = {"title": event.name, "date": null, "description": null,
    "location": [event.geometry.location.lat, event.geometry.location.lng]}
 

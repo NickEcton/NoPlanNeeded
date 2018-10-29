@@ -32,13 +32,16 @@
     margin-bottom: 10px;
 }
 
-.event-show-div h2 {
+.event-show-div p {
     font-size: 16px;
     font-weight: 500;
     color: #51a3fd;
+    display: block;
+    height: 75px;
+    width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
-    /* text-align: left; */
+    text-align: left;
 }
 
 .event-img-map {

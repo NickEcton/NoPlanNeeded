@@ -29,19 +29,19 @@ export const pickRandomEvent = (pojo) => {
     function sample(array) {
         return array[Math.floor ( Math.random() * array.length )]
         }
-
-        let choice = sample(options.sample(pojo.categories))
+        let category = sample(pojo.categories)
+        let choice = sample(options[category])
 
         if (["concerts", "sports", "comedy"].includes(choice)) {
-            receiveEventful(pojo.location, choice)
+            return receiveEventful(pojo.location, choice)
         } else if (choice === "tour") {
-            receiveTour(pojo.location)
+            return receiveTour(pojo.location)
         } else if (choice === "hiking") {
-            receiveHiking(pojo.location)
+            return receiveHiking(pojo.location)
         } else if (choice === "random") {
-            receiveEvent(pojo.location)
+            return receiveEvent(pojo.location)
         } else {
-            receiveGooglePlaces(pojo.location, choice)
+           return receiveGooglePlaces(pojo.location, choice)
         }
 
 }
@@ -50,12 +50,12 @@ export const receiveGooglePlaces = (location, category) => dispatch => {
     
     return ApiUtil.receiveGooglePlaces(category, location).then((res) => { 
         let pojo = googleNormalizer(res)
-        
-        if (pojo.photoref) {
-        
+        // debugger
+        if (res.photos) {
+            // pojo["picture"] = res.photos[0]
             ApiUtil.receiveGoogleImage(pojo.photoref).then((res) => {
-            
-                pojo["photo"] = res
+                // debugger
+                pojo["picture"] = res;
                 dispatch(receiveOneEvent(pojo))
             })
         } else {
@@ -74,10 +74,13 @@ export const receiveEventful = (location, category) => dispatch => {
         
         ApiUtil.receiveEventfulImage(pojo.id).then((res) => {
 
-            pojo["location"] = [res.data.latitude, res.data.longitude]
+            pojo["location"] = [
+                parseFloat(res.data.latitude), 
+                parseFloat(res.data.longitude)
+            ]
             
             if (res.data.images) {
-                pojo["images"] = res.data.images[0]
+                pojo["picture"] = res.data.images[0]
             }
             dispatch(receiveOneEvent(pojo))
         })
