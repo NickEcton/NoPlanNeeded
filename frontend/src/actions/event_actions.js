@@ -6,6 +6,7 @@ import hikingNormalizer from '../components/normalizers/hikingNormalizer.js';
 import predictNormalizer from '../components/normalizers/predictNormalizer.js';
 
 
+
 export const RECEIVE_ONE_EVENT = 'RECEIVE_ONE_EVENT'
 
 const receiveOneEvent = (event) => ({
@@ -29,6 +30,8 @@ export const pickRandomEvent = (pojo) => {
     function sample(array) {
         return array[Math.floor ( Math.random() * array.length )]
         }
+        
+        
 
         let category = sample(pojo.categories)
         let choice = sample(options[category])
@@ -45,24 +48,20 @@ export const pickRandomEvent = (pojo) => {
         } else {
            return receiveGooglePlaces(pojo.location, choice)
         }
-
+        
 }
 
 export const receiveGooglePlaces = (location, category) => dispatch => {
     
     return ApiUtil.receiveGooglePlaces(category, location).then((res) => { 
         let pojo = googleNormalizer(res)
-        // debugger
-        if (res.photos) {
-            // pojo["picture"] = res.photos[0]
-            ApiUtil.receiveGoogleImage(pojo.photoref).then((res) => {
-                // debugger
-                pojo["picture"] = res;
+            
+        if (pojo.photoref) {
+            debugger
+                pojo["picture"] =`https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyDYpYUFcyLs-NsGwq7CYkPLFSnGcZ5unp4&photoreference=${pojo.photoref}&maxheight=300`
+                
                 dispatch(receiveOneEvent(pojo))
-            })
-        } else {
-            dispatch(receiveOneEvent(pojo))
-        }
+         }
 
     })
 }
