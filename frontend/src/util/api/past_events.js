@@ -2,7 +2,6 @@ const axios = require('axios');
 
 
 export const createPastEvents = (pastEvents) => {
-  debugger
   return (
     axios({
       method: 'POST',

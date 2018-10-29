@@ -5,8 +5,6 @@ import { RECEIVE_CURRENT_USER } from '../../util/session_api_util.js';
 //normalize the array of preferences that comes in through an array 
 //preferences are stored by id 
 const normalizeBackend = (preference) => {
-    // debugger;
-    // preference = preference[0]
     return { 
         [preference._id]: {
         id: preference._id, 
