@@ -12,7 +12,7 @@ const hikingNormalizer = (res) => {
   let normalized_trail = {
     title: title,
     location: location,
-    date: date,
+    eventDate: date,
     picture: picture,
     description: description
   }
