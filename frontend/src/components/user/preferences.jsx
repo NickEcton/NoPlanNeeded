@@ -7,7 +7,18 @@ class Preferences extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      adult: true, 
+      familyFriendly: true,
+      concerts: true, 
+      food: true, 
+      historic: true, 
+      outdoors: true,
+      sports: true,
+      random: true 
+    };
     this.closeModal = this.closeModal.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   closeModal(e) {
@@ -18,7 +29,34 @@ class Preferences extends React.Component {
     }
   }
 
+  handleInputChange(e) {
+    const target = e.target; 
+    //checks if the target type 
+    //target.checked will check the current state's T or F 
+    const value = (target.type === 'checkbox') ? target.checked : ""; 
+    const name = target.name; 
+    // const value = (target.type === 'checkbox') ? target.checked : target.value; 
+
+    this.setState({ [name]: value });
+  }
+
+
+  componentDidMount() {
+    this.props.fetchPreference(); 
+    debugger;
+    this.setState = ({
+      adult: this.props.preference.adult, 
+      familyFriendly: this.props.preference.familyFriendly,
+      concerts: this.props.preference.concerts, 
+      food: this.props.preference.food, 
+      historic: this.props.preference.historic, 
+      outdoors: this.props.preference.outdoors,
+      sports: this.props.preference.sports,
+      random: this.props.preference.random 
+    });
+  }
   render() {
+    console.log(this.state);
     return (
       <div
         id="preferences-modal"
@@ -48,10 +86,71 @@ class Preferences extends React.Component {
             onClick={this.closeModal}
           />
           <h1>Preferences Page</h1>
+            <form>
+              <label>
+                <input type="checkbox" name="adult" checked={this.state.adult} onChange={this.handleInputChange}></input>
+                Adult 
+              </label>
+
+
+              <label>
+              <input type="checkbox" name="concerts" checked={this.state.concerts} onChange={this.handleInputChange}></input>
+              Concerts 
+              </label>
+
+
+
+              <label>
+              <input type="checkbox" name="familyFriendly" checked={this.state.familyFriendly} onChange={this.handleInputChange}></input>
+              Family Friendly 
+              </label>
+
+
+
+              <label>
+              <input type="checkbox" name="food" checked={this.state.food} onChange={this.handleInputChange}></input>
+              Food 
+              </label>
+
+
+
+              <label>
+              <input type="checkbox" name="historic" checked={this.state.historic} onChange={this.handleInputChange}></input>
+              Historic 
+              </label>
+
+
+              <label>
+              <input type="checkbox" name="outdoors" checked={this.state.outdoors} onChange={this.handleInputChange}></input>
+              Outdoors 
+              </label>
+
+
+              <label>
+              <input type="checkbox" name="sports" checked={this.state.sports} onChange={this.handleInputChange}></input>
+              Sports 
+              </label>
+
+
+              <label>
+              <input type="checkbox" name="random" checked={this.state.random} onChange={this.handleInputChange}></input>
+              Random 
+              </label>
+
+              
+
+              <input type="submit"></input>
+            </form>
         </div>
       </div>
     );
   }
 }
+
+
+
+//input information and updating local state is from:
+// https://reactjs.org/docs/forms.html
+
 
 export default withRouter(Preferences);

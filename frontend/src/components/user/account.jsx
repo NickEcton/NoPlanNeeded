@@ -20,6 +20,7 @@ class Account extends React.Component {
   }
 
   render() {
+    let currentUser = this.props.users[this.props.session.id];
 
     return <div id="account-modal" className="modal-background" onClick={this.closeModal}>
         <div className="tabs-div">
@@ -35,8 +36,8 @@ class Account extends React.Component {
           <div className='user-profile'>
             <img className='avatar' src={avatar}/>
             <div className='user-info'>
-              <h1>Username</h1>
-              <h1>email@email.com</h1>
+              <h1>{currentUser.name}</h1>
+              <h1>{currentUser.email}</h1>
             </div>
           </div>
           <div className='recent-events'>
@@ -47,4 +48,7 @@ class Account extends React.Component {
   }
 }
 
+
+{/* <h1>Username</h1>
+<h1>email@email.com</h1> */}
 export default withRouter(Account);

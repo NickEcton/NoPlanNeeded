@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import "../../stylesheets/history.css";
 import modalx from "../../images/modal-x-btn.png";
+import HistoryIndexItems from './historyIndexItems.jsx';
 
 class History extends React.Component {
   constructor(props) {
@@ -18,7 +19,17 @@ class History extends React.Component {
     }
   }
 
+  componentDidMount(){
+    this.props.fetchPastEvents();
+  }
+
   render() {
+    let pastEvents = (this.props.events) ? (
+      this.props.events.map((event) => (
+          <HistoryIndexItems event={event} key={event.id}/>
+        ))
+    ) : "";
+
     return (
       <div
         id="history-modal"
@@ -48,6 +59,7 @@ class History extends React.Component {
             onClick={this.closeModal}
           />
           <h1>History Page</h1>
+            { pastEvents }
         </div>
       </div>
     );
