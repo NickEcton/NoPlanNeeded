@@ -52,19 +52,37 @@
     height: 500px;
 }
 
+.preferences-div h1 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .preferences-boxes {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 30px 0 80px 50px;
+  margin: 10px 0 40px 80px;
+  width: 80%;
+  border-top: 3px double #51A3FD;
+
 }
 
 .preferences-boxes input {
-  margin: 15px 0 0 0;
+  margin: 20px 0 0 20px;
   padding: 0 0 10px 0;
 }
 
 .preferences-boxes label {
   padding: 0 10px 0 10px;
+}
+
+.preferences-button {
+  background-color: #51A3FD;
+  width: 120px;
+  height: 35px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
 }

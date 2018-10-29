@@ -83,7 +83,7 @@
     width: 80%;
     min-height: 150px;
     margin: 15px;
-    border-top: 2px solid #51A3FD;
+    border-top: 3px double #51A3FD;
 }
 
 .recent-events h1 {

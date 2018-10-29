@@ -99,13 +99,13 @@ class Preferences extends React.Component {
             alt="close modal button"
             onClick={this.closeModal}
           />
-          <h1>Preferences Page</h1>
-            <form>
+        <h1>Choose your preferences for the button</h1>
+            <form onSubmit={this.handleSubmit}>
               <div className="preferences-boxes">
-                <label>
-                  <input type="checkbox" name="adult" checked={this.state.adult} onChange={this.handleInputChange}></input>
-                  &nbsp; &nbsp;Adult
-                </label>
+              <label>
+                <input type="checkbox" name="adult" checked={this.state.adult} onChange={this.handleInputChange}></input>
+                &nbsp; &nbsp;Adult
+              </label>
 
 
                 <label>
@@ -154,8 +154,7 @@ class Preferences extends React.Component {
               </div>
 
 
-
-              <input type="submit" onClick={this.handleSubmit}></input>
+              <button type="submit" className="preferences-button"> Submit </button>
             </form>
         </div>
       </div>

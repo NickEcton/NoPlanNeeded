@@ -58,7 +58,7 @@ class History extends React.Component {
             alt="close modal button"
             onClick={this.closeModal}
           />
-          <h1>History Page</h1>
+        <h1>Check out the events you've saved!</h1>
             { pastEvents }
         </div>
       </div>

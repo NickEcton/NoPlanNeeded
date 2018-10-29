@@ -48,9 +48,16 @@ class History extends React.Component {
             onClick={this.closeModal}
           />
         <h3>Who Are We?</h3>
-          <p className="about-text">We are four software developers from all around the country (Oklahoma, LA, Indiana, Seattle) who met while in school in San Francisco. </p>
+          <p className="about-text">We are four software developers from all around the country (Oklahoma, Los Angeles, Indiana, Seattle) who met while in school in San Francisco. </p>
         <h3>Our Mission</h3>
           <p className="about-text">When moving to a new city, it can often be frustrating trying to organize plans when you are not familiar with the area. Enter NoPlanNeeded, where with the click of a button you will have something fun to do. </p>
+        <h3>The Team</h3>
+          <p className="about-text">
+            <a href="https://www.linkedin.com/in/clayton-christian/">Clayton</a>
+            <a href="https://www.linkedin.com/in/devin-flood-02032125/">Devon</a>
+            <a href="https://www.linkedin.com/in/nicholas-ecton-095423120/">Nick</a>
+            <a href="https://www.linkedin.com/in/hsusteph5/">Stephanie</a>
+          </p>
         </div>
       </div>
     );
