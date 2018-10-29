@@ -52,8 +52,25 @@
     height: 500px;
 }
 
+.about-div h3 {
+    margin: 10px 0 10px 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.about-div h3:last-of-type {
+    margin: 10px 0 0 0;
+}
+
 .about-text {
     width: 60%;
     text-align: left;
     align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.about-text a {
+  color: #51A3FD;
 }
