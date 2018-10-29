@@ -16,7 +16,8 @@ const normalizePreference = (preference) => {
         historic: preference.historic, 
         outdoors: preference.outdoors, 
         sports: preference.sports,
-        random: preference.random
+        random: preference.random,
+        userId: preference.userId
     }}
 }
 
