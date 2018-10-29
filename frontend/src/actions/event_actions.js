@@ -4,8 +4,6 @@ import eventfulNormalizer from '../components/normalizers/eventfulNormalizer.js'
 import tourNormalizer from '../components/normalizers/tourNormalizer.js';
 import hikingNormalizer from '../components/normalizers/hikingNormalizer.js';
 import predictNormalizer from '../components/normalizers/predictNormalizer.js';
-const RapidAPI = require('rapidapi-connect');
-const rapid = new RapidAPI;
 
 
 
