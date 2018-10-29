@@ -100,7 +100,7 @@ class Preferences extends React.Component {
             onClick={this.closeModal}
           />
           <h1>Preferences Page</h1>
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <label>
                 <input type="checkbox" name="adult" checked={this.state.adult} onChange={this.handleInputChange}></input>
                 Adult 
@@ -151,9 +151,7 @@ class Preferences extends React.Component {
               Random 
               </label>
 
-              
-
-              <input type="submit" onClick={this.handleSubmit}></input>
+              <button type="submit"> Submit </button>
             </form>
         </div>
       </div>
