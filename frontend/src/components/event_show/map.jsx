@@ -4,7 +4,6 @@ import { withGoogleMap, GoogleMap } from 'react-google-maps';
 class Map extends React.Component {
 
   render() {
-    // debugger
     const lat = this.props.location[0];
     const lng = this.props.location[1];
 

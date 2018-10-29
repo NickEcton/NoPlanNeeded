@@ -5,7 +5,6 @@ const validateHistoryInput = require('../../validations/history');
 const History = require('../../models/History');
 //create a past event when the users 'prefer this event'
 router.post('/create', passport.authenticate('jwt', { session: false }), (req, res) => {
-    debugger;
     //model level validations 
     const { errors, isValid } = validateHistoryInput(req.body);
     if (!isValid) {
