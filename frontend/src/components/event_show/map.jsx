@@ -14,7 +14,7 @@ class Map extends React.Component {
           lat, 
           lng
         }}
-        defaultZoom={20}
+        defaultZoom={18}
       >
       </GoogleMap>
     ));
