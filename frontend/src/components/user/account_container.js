@@ -3,7 +3,8 @@ import Account from './account';
 
 const mapStateToProps = state => {
   return {
-
+    users: state.entities.users,
+    session: state.session 
   };
 };
 

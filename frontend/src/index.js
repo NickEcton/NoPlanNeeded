@@ -8,9 +8,10 @@ import configureStore from './store/store';
 import App from './App.js';
 import { receiveEventful, receiveGooglePlaces, receiveTour, receiveHiking, receiveEvent, pickRandomEvent } from './actions/event_actions.js'
 import { createPastEvents, fetchPastEvents } from './actions/past_events_actions.js';
-
-
 import { logoutUser, loginUser } from './util/session_api_util.js';
+import { fetchPreference, createPreference, editPreference } from './actions/preferences_actions.js';
+// import { fetchPreference } from './util/api/preferences.js';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
@@ -30,12 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // Logout user
       store.dispatch(APIUtil.logoutUser());
       // Redirect to login
-      window.location.href = '/login';
+      // window.location.href = '/login';
     }
   }
 
 
-  //testing 
+  // //testing 
   window.store = store; 
   window.getState = store.getState;
   window.dispatch = store.dispatch; 
@@ -50,6 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
   //testing for fetching / creating old events
   window.createPastEvents = createPastEvents;
   window.fetchPastEvents = fetchPastEvents;
+  window.createPreference = createPreference; 
+
+  // window.createPreference = createPreference; 
+  window.fetchPreference = fetchPreference;
+  window.editPreference = editPreference;
 
 
   const root = document.getElementById('root');

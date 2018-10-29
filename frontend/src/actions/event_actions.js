@@ -35,7 +35,9 @@ export const pickRandomEvent = (pojo) => {
         
         
 
-        let choice = sample(options[sample(pojo.categories)])
+        let category = sample(pojo.categories)
+        let choice = sample(options[category])
+
 
         if (["concerts", "sports", "comedy"].includes(choice)) {
             return receiveEventful(pojo.location, choice)
@@ -46,7 +48,7 @@ export const pickRandomEvent = (pojo) => {
         } else if (choice === "random") {
             return receiveEvent(pojo.location)
         } else {
-            return receiveGooglePlaces(pojo.location, choice)
+           return receiveGooglePlaces(pojo.location, choice)
         }
         
 }
@@ -58,27 +60,9 @@ export const receiveGooglePlaces = (location, category) => dispatch => {
             
         if (pojo.photoref) {
             debugger
-            //     rapid.call('GooglePlaces', 'getImageURL', { 
-            //         'apiKey': 'AIzaSyDYpYUFcyLs-NsGwq7CYkPLFSnGcZ5unp4',
-            //         'max_width': '300',
-            //         'image_id': 'CmRaAAAAgGJ8-ERneeVWPO8YD8j7_oq55aMwy9CkJYyb9T9NaW076gjDxTonV91hZ6CNK_R_UTbZFWyz5umZiqHI0jrKor24gyffPv8JrCo7kdoPh7LXvgbcsJwUBwbRqXQIUJkSEhADcVfJhGI6sC17EGK6uRncGhSiyeuYSHoBpBjfgxaIgP7fx6h_Kw',
-            //         'max_height': '300'
-                
-            //     }).on('success', (payload)=>{
-            //         console.log('s')
-            //         console.log(payload)
-            //    }).on('error', (payload)=>{
-            //        console.log('e')
-            //         console.log(payload)
-            //    });
-            
-            // ApiUtil.receiveGoogleImage(pojo.photoref).then((res) => {
-                pojo["photo"] =`https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyDYpYUFcyLs-NsGwq7CYkPLFSnGcZ5unp4&photoreference=${pojo.photoref}&maxheight=300`
+                pojo["picture"] =`https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyDYpYUFcyLs-NsGwq7CYkPLFSnGcZ5unp4&photoreference=${pojo.photoref}&maxheight=300`
                 
                 dispatch(receiveOneEvent(pojo))
-        //     })
-        // } else {
-        //     dispatch(receiveOneEvent(pojo))
          }
 
     })
@@ -92,11 +76,19 @@ export const receiveEventful = (location, category) => dispatch => {
         let pojo = eventfulNormalizer(res)       
         
         ApiUtil.receiveEventfulImage(pojo.id).then((res) => {
+<<<<<<< HEAD
             
             pojo["location"] = [res.data.latitude, res.data.longitude]
+=======
+
+            pojo["location"] = [
+                parseFloat(res.data.latitude), 
+                parseFloat(res.data.longitude)
+            ]
+>>>>>>> 7a21a75ee6021a0c2eaeb3f6a5a9e016ccbd9ec2
             
             if (res.data.images) {
-                pojo["images"] = res.data.images[0]
+                pojo["picture"] = res.data.images[0]
             }
             dispatch(receiveOneEvent(pojo))
         })

@@ -13,6 +13,7 @@ const normalizeAllEvents = (events) => {
             eventDate: event.eventDate, 
             location: event.location,
             picture: event.picture,
+            userId: event.userId
         };
     }
     return newHash;
@@ -27,6 +28,7 @@ const normalizeEvent = (event) => {
         eventDate: event.eventDate, 
         location: event.location,
         picture: event.picture,
+        userId: event.userId
     }}
 }
 
@@ -36,8 +38,7 @@ const pastEventsReducer = (state = {}, action) => {
     switch(action.type) {
         case RECEIVE_PAST_EVENTS:
             let prevEvent = normalizeEvent(action.pastEvent);
-            let newState = newState = merge({}, state, prevEvent);
-            // let newState = merge({}, state, {[action.pastEvent._id] : action.pastEvent})
+            let newState = merge({}, state, prevEvent);
             return newState;
         case RECEIVE_ALL_PAST_EVENTS: 
             let allPrevEvents = normalizeAllEvents(action.pastEvents);
