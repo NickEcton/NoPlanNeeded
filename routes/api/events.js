@@ -43,7 +43,7 @@ router.get('/new/GooglePlaces/:type/:location', (req, res) => {
     method: "GET",
     url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDYpYUFcyLs-NsGwq7CYkPLFSnGcZ5unp4&location=${req.params.location}&type=${req.params.type}&radius=10000`
   }).then(response => {
-  
+      
     res.send(response.data)
   })
 })
