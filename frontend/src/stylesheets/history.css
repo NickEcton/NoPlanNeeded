@@ -51,3 +51,30 @@
     width: 60%;
     height: 500px;
 }
+
+.history-div h1 {
+    border-bottom: 3px double #51a3fd;
+    padding-bottom: 10px;
+    width: 80%;
+    align-self: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.history-index-item {
+    border-bottom: 1px solid #51A3FD;
+    width: 70%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 10px 20px;
+}
+
+.history-index-item img {
+  height: 100px;
+  width: 150px;
+}
+
+.history-index-item ul {
+  margin-left: 20px;
+}

@@ -19,13 +19,11 @@ export const fetchPreference = () => dispatch => {
 }
 
 export const createPreference = (preference) => dispatch => {
-    // debugger;
     return preferencesAPIUtil.createPreference(preference)
         .then(preference => dispatch(getPreference(preference.data)))
 }
 
 export const editPreference = (preference) => dispatch => {
-    // debugger;
     return preferencesAPIUtil.editPreference(preference)
         .then(preference => dispatch(getPreference(preference.data)))
 }

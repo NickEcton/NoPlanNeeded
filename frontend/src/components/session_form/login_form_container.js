@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import { loginUser } from '../../util/session_api_util.js';
 import SessionForm from './session_form';
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = (state) => {
   return {
     // errors: errors.session,
     formType: 'Log in',
     navLink: <Link to="/signup">Sign up</Link>,
+    session: this.state.session.id
   };
 };
 

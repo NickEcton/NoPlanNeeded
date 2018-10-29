@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import EventShow from './event_show';
 import { pickRandomEvent } from '../../actions/event_actions';
+import { createPastEvents } from '../../actions/past_events_actions';
 
 const mapStateToProps = state => {
     return {
@@ -10,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchEvent: (pojo) => dispatch(pickRandomEvent(pojo))
+        fetchEvent: (pojo) => dispatch(pickRandomEvent(pojo)),
+        createPastEvents: (pojo) => dispatch(createPastEvents(pojo))
     };
 };
 

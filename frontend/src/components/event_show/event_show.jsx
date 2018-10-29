@@ -17,6 +17,7 @@ class EventShow extends React.Component {
     this.initGeolocation = this.initGeolocation.bind(this);
     this.getEvent = this.getEvent.bind(this);
     this.getNewEvent = this.getNewEvent.bind(this);
+    this.saveEvent = this.saveEvent.bind(this)
   }
 
   closeModal(e) {
@@ -37,7 +38,6 @@ class EventShow extends React.Component {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           })
-          // debugger
           this.getEvent();
         },
         //On failure...
@@ -50,6 +50,10 @@ class EventShow extends React.Component {
       alert("Your browser does not support geolocation, using default location instead.");
       this.getEvent();
     }
+  }
+
+  saveEvent() {
+    this.props.createPastEvents(this.props.event)
   }
 
   getEvent() {
@@ -102,17 +106,14 @@ class EventShow extends React.Component {
       let eventPicture = this.props.event.picture;
 
       if (this.props.event.picture === 'not available') {
-        debugger
         console.log('picture not available')
         eventPicture = concert;
       }
 
       if (!this.props.event.picture) {
-        debugger
         console.log('no event.picture')
         eventPicture = concert;
       } else if (this.props.event.picture.data) {
-        debugger
         console.log('picture.data')
         const img = new Image;
         img.src = this.props.event.picture.data;
@@ -153,7 +154,7 @@ class EventShow extends React.Component {
               </p>
             </div>
             <div className="event-buttons">
-              <button>Save Event</button>
+              <button onClick={this.saveEvent}>Save Event</button>
               <button onClick={this.getNewEvent}>
                 Get New Event
               </button>
