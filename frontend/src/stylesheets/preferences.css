@@ -41,7 +41,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     border: 1px solid #abb1b8;
     border-radius: 0 0 5px 5px;
     box-sizing: border-box;
@@ -50,4 +50,21 @@
     margin-bottom: auto;
     width: 60%;
     height: 500px;
+}
+
+.preferences-boxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 30px 0 80px 50px;
+}
+
+.preferences-boxes input {
+  margin: 15px 0 0 0;
+  padding: 0 0 10px 0;
+}
+
+.preferences-boxes label {
+  padding: 0 10px 0 10px;
 }
