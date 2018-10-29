@@ -5,7 +5,7 @@ const users = require('./routes/api/users.js');
 const preferences = require('./routes/api/preferences');
 const events = require('./routes/api/events.js');
 const history = require('./routes/api/history.js');
-
+const path = require('path');
 
 const passport = require('passport');
 require('./config/passport')(passport);
@@ -54,3 +54,11 @@ const port = process.env.PORT || 5000;
 //listening to the connection to the port 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
+
+//heroku deployment setup
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}

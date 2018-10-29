@@ -102,17 +102,17 @@ class EventShow extends React.Component {
       let eventPicture = this.props.event.picture;
 
       if (this.props.event.picture === 'not available') {
-        // debugger
+        debugger
         console.log('picture not available')
         eventPicture = concert;
       }
 
       if (!this.props.event.picture) {
-        // debugger
+        debugger
         console.log('no event.picture')
         eventPicture = concert;
       } else if (this.props.event.picture.data) {
-        // debugger
+        debugger
         console.log('picture.data')
         const img = new Image;
         img.src = this.props.event.picture.data;
