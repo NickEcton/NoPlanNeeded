@@ -8,17 +8,18 @@ class Preferences extends React.Component {
     super(props);
 
     this.state = {
-      adult: true,
-      familyFriendly: true,
-      concerts: true,
-      food: true,
-      historic: true,
-      outdoors: true,
-      sports: true,
-      random: true
+      adult: "",
+      familyFriendly: "",
+      concerts: "",
+      food: "",
+      historic: "",
+      outdoors: "",
+      sports: "",
+      random: ""
     };
     this.closeModal = this.closeModal.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   closeModal(e) {
@@ -35,28 +36,41 @@ class Preferences extends React.Component {
     //target.checked will check the current state's T or F
     const value = (target.type === 'checkbox') ? target.checked : "";
     const name = target.name;
-    // const value = (target.type === 'checkbox') ? target.checked : target.value;
 
     this.setState({ [name]: value });
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.editPreference(this.state);
   }
 
 
   componentDidMount() {
     this.props.fetchPreference();
-    debugger;
-    this.setState = ({
-      adult: this.props.preference.adult,
-      familyFriendly: this.props.preference.familyFriendly,
-      concerts: this.props.preference.concerts,
-      food: this.props.preference.food,
-      historic: this.props.preference.historic,
-      outdoors: this.props.preference.outdoors,
-      sports: this.props.preference.sports,
-      random: this.props.preference.random
-    });
   }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.preference != this.props.preference) {
+      this.setState({
+        adult: this.props.preference.adult,
+        familyFriendly: this.props.preference.familyFriendly,
+        concerts: this.props.preference.concerts,
+        food: this.props.preference.food,
+        historic: this.props.preference.historic,
+        outdoors: this.props.preference.outdoors,
+        sports: this.props.preference.sports,
+        random: this.props.preference.random
+      })}
+  }
+
   render() {
-    console.log(this.state);
+    if(!this.props.preference) {
+      return (
+        <div className="loader">
+        </div>
+      );
+    }
     return (
       <div
         id="preferences-modal"
@@ -90,58 +104,58 @@ class Preferences extends React.Component {
               <div className="preferences-boxes">
                 <label>
                   <input type="checkbox" name="adult" checked={this.state.adult} onChange={this.handleInputChange}></input>
-                  Adult
+                  &nbsp; &nbsp;Adult
                 </label>
 
 
                 <label>
                 <input type="checkbox" name="concerts" checked={this.state.concerts} onChange={this.handleInputChange}></input>
-                Concerts
+                &nbsp; &nbsp;Concerts
                 </label>
 
 
 
                 <label>
                 <input type="checkbox" name="familyFriendly" checked={this.state.familyFriendly} onChange={this.handleInputChange}></input>
-                Family Friendly
+                &nbsp; &nbsp;Family Friendly
                 </label>
 
 
 
                 <label>
                 <input type="checkbox" name="food" checked={this.state.food} onChange={this.handleInputChange}></input>
-                Food
+                &nbsp; &nbsp;Food
                 </label>
 
 
 
                 <label>
                 <input type="checkbox" name="historic" checked={this.state.historic} onChange={this.handleInputChange}></input>
-                Historic
+                &nbsp; &nbsp;Historic
                 </label>
 
 
                 <label>
                 <input type="checkbox" name="outdoors" checked={this.state.outdoors} onChange={this.handleInputChange}></input>
-                Outdoors
+                &nbsp; &nbsp;Outdoors
                 </label>
 
 
                 <label>
                 <input type="checkbox" name="sports" checked={this.state.sports} onChange={this.handleInputChange}></input>
-                Sports
+                &nbsp; &nbsp;Sports
                 </label>
 
 
                 <label>
                 <input type="checkbox" name="random" checked={this.state.random} onChange={this.handleInputChange}></input>
-                Random
+                &nbsp; &nbsp;Random
                 </label>
               </div>
 
 
 
-              <input type="submit"></input>
+              <input type="submit" onClick={this.handleSubmit}></input>
             </form>
         </div>
       </div>
