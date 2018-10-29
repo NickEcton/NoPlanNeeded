@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "engines": {
+    "node": "8.10.0"
+  },
   "scripts": {
     "server": "nodemon --inspect app.js",
     "frontend-install": "npm install --prefix frontend",
