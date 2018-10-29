@@ -20,7 +20,7 @@ const tourNormalizer = (res) => {
   let normalized_tour = {
     title: title,
     location: location,
-    date: date,
+    eventDate: date,
     pic_cp: pic_cp,
     pic_uuid: pic_uuid,
     description: description

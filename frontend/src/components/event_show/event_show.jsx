@@ -17,6 +17,7 @@ class EventShow extends React.Component {
     this.initGeolocation = this.initGeolocation.bind(this);
     this.getEvent = this.getEvent.bind(this);
     this.getNewEvent = this.getNewEvent.bind(this);
+    this.saveEvent = this.saveEvent.bind(this)
   }
 
   closeModal(e) {
@@ -50,6 +51,10 @@ class EventShow extends React.Component {
       alert("Your browser does not support geolocation, using default location instead.");
       this.getEvent();
     }
+  }
+
+  saveEvent() {
+    this.props.createPastEvents(this.props.event)
   }
 
   getEvent() {
@@ -153,7 +158,7 @@ class EventShow extends React.Component {
               </p>
             </div>
             <div className="event-buttons">
-              <button>Save Event</button>
+              <button onClick={this.saveEvent}>Save Event</button>
               <button onClick={this.getNewEvent}>
                 Get New Event
               </button>
