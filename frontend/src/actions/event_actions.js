@@ -74,16 +74,11 @@ export const receiveEventful = (location, category) => dispatch => {
         let pojo = eventfulNormalizer(res)       
         
         ApiUtil.receiveEventfulImage(pojo.id).then((res) => {
-<<<<<<< HEAD
-            
-            pojo["location"] = [res.data.latitude, res.data.longitude]
-=======
 
             pojo["location"] = [
                 parseFloat(res.data.latitude), 
                 parseFloat(res.data.longitude)
             ]
->>>>>>> 7a21a75ee6021a0c2eaeb3f6a5a9e016ccbd9ec2
             
             if (res.data.images) {
                 pojo["picture"] = res.data.images[0]
