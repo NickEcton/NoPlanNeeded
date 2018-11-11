@@ -50,6 +50,7 @@
     margin-bottom: auto;
     width: 60%;
     height: 500px;
+    overflow: scroll;
 }
 
 .history-div h1 {
@@ -59,6 +60,18 @@
     align-self: center;
     font-size: 18px;
     font-weight: 500;
+}
+
+.history-li {
+    display: flex;
+    flex-direction: row;
+}
+
+.history-li > img {
+    max-height: 150px;
+    max-width: 200px;
+    height: auto;
+    width: auto;
 }
 
 .history-index-item {

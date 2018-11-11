@@ -23,14 +23,12 @@ const HistoryIndexItems = ({event}) => {
     }
 
     return(
-        <div className="history-index-item">
+        <li className='history-li'>
             <img src={eventPicture}/>
-            <ul>
-                <li><h2>{event.title}</h2></li>
-                <li>{event.description}</li>
-                <li>{event.eventDate}</li>
-            </ul>
-        </div>
+            <h2>{event.title}</h2>
+            <h3>{event.description}</h3>
+            <h3>{event.eventDate}</h3>
+        </li>
     );
 }
 
