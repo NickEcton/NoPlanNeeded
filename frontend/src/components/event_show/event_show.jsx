@@ -70,9 +70,15 @@ class EventShow extends React.Component {
         'sports'
       ]
     });
+    // debugger;
+    // this.props.fetchEvent({
+    //   location: [this.state.lat, this.state.lng],
+    //   categories: this.props.categories
+    // });
   }
 
   getNewEvent() {
+    debugger;
     document.getElementById('refresh-loader').classList.remove('hidden')
     this.props.fetchEvent({
       location: [this.state.lat, this.state.lng],
@@ -87,7 +93,10 @@ class EventShow extends React.Component {
         'sports'
       ]
     });
-
+    // this.props.fetchEvent({
+    //   location: [this.state.lat, this.state.lng],
+    //   categories: this.props.categories
+    // });
   }
 
   componentDidMount() {

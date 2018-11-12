@@ -5,7 +5,8 @@ import { createPastEvents } from '../../actions/past_events_actions';
 
 const mapStateToProps = state => {
     return {
-        event: state.entities.events.event
+        event: state.entities.events.event,
+        categories: state.entities.preferences
     };
 };
 

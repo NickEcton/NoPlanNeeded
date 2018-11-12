@@ -22,6 +22,7 @@ const normalizeBackend = (preference) => {
 
 
 const normalizePreference = (preference) => {
+    debugger;
     return { 
         [preference.id]: {
         id: preference.id, 
@@ -45,10 +46,12 @@ const preferencesReducer = (state = {}, action) => {
             let preference = normalizeBackend(action.preference);
             let newState = merge({}, state, preference);
             return newState;
-        // case RECEIVE_CURRENT_USER: 
-        //     preference = normalizePreference(action.payload.preference);
-        //     newState = merge({}, state, preference);
-        //     return newState;
+        //in the case when the user logins, the preferences should update
+        case RECEIVE_CURRENT_USER: 
+            debugger;
+            // preference = normalizePreference(action.payload.preference);
+            // newState = merge({}, state, preference);
+            return state;
         default:
             return state;
     }

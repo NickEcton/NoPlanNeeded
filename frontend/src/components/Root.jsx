@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
+import { AuthRoute } from '../util/route_util.jsx';
 //in this file, we will putting in the modals and the routes
 import '../stylesheets/root.css';
 
