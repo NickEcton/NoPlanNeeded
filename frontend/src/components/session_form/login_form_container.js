@@ -5,11 +5,12 @@ import { loginUser } from '../../util/session_api_util.js';
 import SessionForm from './session_form';
 
 const mapStateToProps = (state) => {
+  debugger
   return {
     // errors: errors.session,
     formType: 'Log in',
     navLink: <Link to="/signup">Sign up</Link>,
-    session: this.state.session.id
+    session: state.session.id
   };
 };
 

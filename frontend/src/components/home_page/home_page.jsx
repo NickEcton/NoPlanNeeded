@@ -6,10 +6,6 @@ import npnlogo from '../../images/npn-logo-1.1.png'
 
 
 class HomePage extends React.Component {
-	constructor(props) {
-		super(props);
-
-  }
   
 	render() {
 

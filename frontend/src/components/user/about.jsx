@@ -54,7 +54,7 @@ class History extends React.Component {
         <h3>The Team</h3>
           <p className="about-text">
             <a href="https://www.linkedin.com/in/clayton-christian/">Clayton</a>
-            <a href="https://www.linkedin.com/in/devin-flood-02032125/">Devon</a>
+            <a href="https://www.linkedin.com/in/devin-flood-02032125/">Devin</a>
             <a href="https://www.linkedin.com/in/nicholas-ecton-095423120/">Nick</a>
             <a href="https://www.linkedin.com/in/hsusteph5/">Stephanie</a>
           </p>
