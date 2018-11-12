@@ -5,14 +5,19 @@ const users = require('./routes/api/users.js');
 const preferences = require('./routes/api/preferences');
 const events = require('./routes/api/events.js');
 const history = require('./routes/api/history.js');
-
+const path = require('path');
 
 const passport = require('passport');
 require('./config/passport')(passport);
 //creates an express server
 const app = express();
 
-
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('/', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
+}
 
 
 
