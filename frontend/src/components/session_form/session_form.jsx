@@ -67,6 +67,8 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+
+
   closeModal(e) {
     const modal = document.getElementById('session-modal')
     const xBtn = document.getElementById('modal-x')

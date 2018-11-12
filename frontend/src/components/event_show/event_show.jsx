@@ -38,7 +38,6 @@ class EventShow extends React.Component {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           })
-          // debugger
           this.getEvent();
         },
         //On failure...
@@ -107,17 +106,14 @@ class EventShow extends React.Component {
       let eventPicture = this.props.event.picture;
 
       if (this.props.event.picture === 'not available') {
-        // debugger
         console.log('picture not available')
         eventPicture = concert;
       }
 
       if (!this.props.event.picture) {
-        // debugger
         console.log('no event.picture')
         eventPicture = concert;
       } else if (this.props.event.picture.data) {
-        // debugger
         console.log('picture.data')
         const img = new Image;
         img.src = this.props.event.picture.data;

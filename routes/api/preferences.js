@@ -14,7 +14,6 @@ router.post('/create', passport.authenticate('jwt', { session: false }), (req, r
 
 //get the all the preferences 
 router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-        // debugger;
     Preference.findOne({userId: req.user.id})
         .then(preferences => res.json(preferences))
         .catch(err => res.status(404).json({ nopreferencesfound: 'No preferences found' }));
@@ -23,7 +22,6 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
 
 //edit the preferences 
 router.patch('/edit', passport.authenticate('jwt', { session: false }), (req, res) => {
-    // debugger;
 
     const updatedPreference = {
         userId: req.user.id,

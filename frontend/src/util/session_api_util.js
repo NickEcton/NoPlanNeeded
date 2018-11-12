@@ -6,6 +6,8 @@ export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 
+
+
 // We can use axios to set a default header
 //backend is using passport and JwtStrategy to confirm authenticity of web token
 export const setAuthToken = token => {
