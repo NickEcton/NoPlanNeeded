@@ -74,6 +74,12 @@
     width: auto;
 }
 
+.event-history-info {
+    display: flex;
+    flex-direction: column;
+    border: 1 px solid pink;
+}
+
 .history-index-item {
     border-bottom: 1px solid #51A3FD;
     width: 70%;
