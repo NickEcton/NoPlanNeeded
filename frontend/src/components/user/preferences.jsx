@@ -51,7 +51,7 @@ class Preferences extends React.Component {
   }
 
   componentDidUpdate(prevProps){
-    if(prevProps.preference != this.props.preference) {
+    if(prevProps.preference !== this.props.preference) {
       this.setState({
         adult: this.props.preference.adult,
         familyFriendly: this.props.preference.familyFriendly,

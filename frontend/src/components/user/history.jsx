@@ -50,6 +50,7 @@ class History extends React.Component {
             About Us
           </Link>
         </div>
+        
         <div className="history-div">
           <img
             id="modal-x"

@@ -86,6 +86,26 @@
     border-top: 3px double #51A3FD;
 }
 
-.recent-events h1 {
+.recent-events-div h1 {
   margin: 10px;
+  text-decoration: underline;
+}
+
+.recent-event-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.recent-event {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.recent-event img {
+    max-width: 15vw;
+    height: auto;
+    width: auto;
+    margin-bottom: 20px;
 }
