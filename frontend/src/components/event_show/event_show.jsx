@@ -57,10 +57,9 @@ class EventShow extends React.Component {
   }
 
   getEvent() {
-    this.props.fetchEvent({
-      location: [this.state.lat, this.state.lng],
-      categories: [
-        'random', 
+    console.log(this.props.categories);
+    // debugger;
+    let categories = ['random', 
         'family-friendly', 
         'concerts', 
         'outdoors', 
@@ -68,34 +67,60 @@ class EventShow extends React.Component {
         'historic',
         'food',
         'sports'
-      ]
+      ];
+    if (this.props.categories){
+      categories = categories; 
+    }
+    this.props.fetchEvent({
+      location: [this.state.lat, this.state.lng],
+      categories: categories
     });
-    // debugger;
     // this.props.fetchEvent({
     //   location: [this.state.lat, this.state.lng],
-    //   categories: this.props.categories
+    //   categories: [
+    //     'random', 
+    //     'family-friendly', 
+    //     'concerts', 
+    //     'outdoors', 
+    //     'adult', 
+    //     'historic',
+    //     'food',
+    //     'sports'
+    //   ]
     // });
   }
 
   getNewEvent() {
-    debugger;
+    let categories = ['random', 
+    'family-friendly', 
+    'concerts', 
+    'outdoors', 
+    'adult', 
+    'historic',
+    'food',
+    'sports'
+    ];
+    if (this.props.categories){
+      categories = categories; 
+    }
+    // console.log(this.props.categories);
     document.getElementById('refresh-loader').classList.remove('hidden')
     this.props.fetchEvent({
       location: [this.state.lat, this.state.lng],
-      categories: [
-        'random',
-        'family-friendly',
-        'concerts',
-        'outdoors',
-        'adult',
-        'historic',
-        'food',
-        'sports'
-      ]
+      categories: categories
     });
     // this.props.fetchEvent({
     //   location: [this.state.lat, this.state.lng],
-    //   categories: this.props.categories
+    //   categories: [
+    //     'random',
+    //     'family-friendly',
+    //     'concerts',
+    //     'outdoors',
+    //     'adult',
+    //     'historic',
+    //     'food',
+    //     'sports'
+    //   ]
     // });
   }
 
@@ -110,6 +135,7 @@ class EventShow extends React.Component {
   }
 
   render() {
+    console.log(this.props.categories)
     if (this.props.event) {
 
       let eventPicture = this.props.event.picture;

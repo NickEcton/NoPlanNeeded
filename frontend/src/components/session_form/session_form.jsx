@@ -64,7 +64,11 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+
+    //when you login in or sign up, you need to fetch their preferences as well
+    this.props.processForm(user)
+      // .then(res => console.log(res))
+    // this.props.fetchPreference();
   }
 
 

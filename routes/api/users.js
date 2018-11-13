@@ -43,6 +43,7 @@ router.post('/register', (req, res) => {
             password: req.body.password
           })
 
+          //when you register a new user, the preferences are made in the DB as well
           const newPreference = new Preference({userId: newUser.id})
           newPreference.save();
           //salt the password (hash)
@@ -99,7 +100,7 @@ router.post('/login', (req, res) => {
                     if (isMatch){
                         //payload is being sent to the front end 
                         //want to send a signed payload to the frontend
-                        const payload = {id: user.id, name: user.name, email: user.email, preference: user.preference}
+                        const payload = {id: user.id, name: user.name, email: user.email}
                         //jwt (payload, header, sign) the token to the frontend
                         //jwt(servers can vertify integrity of the user)
                         //specifies how long it will expire in 
