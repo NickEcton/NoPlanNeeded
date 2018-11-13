@@ -1,5 +1,6 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import { fetchPreference } from '../actions/preferences_actions';
 
 // const $ = window.$;
 export const GET_ERRORS = 'GET_ERRORS';
@@ -36,6 +37,7 @@ export const registerUser = (userData, history) => dispatch => {
       const decoded = jwt_decode(token);
       // Set current user
       dispatch(setCurrentUser(decoded));
+      dispatch(fetchPreference());
     })
     .catch(err =>
       dispatch({
@@ -60,6 +62,7 @@ export const loginUser = userData => dispatch => {
       const decoded = jwt_decode(token);
       // Set current user
       dispatch(setCurrentUser(decoded));
+      dispatch(fetchPreference());
     })
     .catch(err =>
       dispatch({

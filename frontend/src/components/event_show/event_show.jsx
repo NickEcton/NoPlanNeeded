@@ -3,6 +3,7 @@ import "../../stylesheets/event_show.css";
 import modalx from "../../images/modal-x-btn.png";
 import concert from "../../images/audience-blur-bokeh-976866.jpg";
 import Map from "./map";
+import * as Selector from '../../util/selector.js';
 
 class EventShow extends React.Component {
   constructor(props) {
@@ -10,7 +11,17 @@ class EventShow extends React.Component {
 
     this.state = {
       lat: 37.792118,
-      lng: -122.408626
+      lng: -122.408626,
+      categories: [
+        'random', 
+        'family-friendly', 
+        'concerts', 
+        'outdoors', 
+        'adult', 
+        'historic',
+        'food',
+        'sports'
+      ]
     };
 
     this.closeModal = this.closeModal.bind(this);
@@ -58,40 +69,31 @@ class EventShow extends React.Component {
 
   getEvent() {
     this.props.fetchEvent({
-      location: [this.state.lat, this.state.lng],
-      categories: [
-        'random', 
-        'family-friendly', 
-        'concerts', 
-        'outdoors', 
-        'adult', 
-        'historic',
-        'food',
-        'sports'
-      ]
-    });
+          location: [this.state.lat, this.state.lng],
+          categories: this.state.categories
+    }) 
   }
 
+  //sending the local state (updated with the user preferences if user is logged in)
   getNewEvent() {
-    document.getElementById('refresh-loader').classList.remove('hidden')
+    document.getElementById('refresh-loader').classList.remove('hidden');
     this.props.fetchEvent({
-      location: [this.state.lat, this.state.lng],
-      categories: [
-        'random',
-        'family-friendly',
-        'concerts',
-        'outdoors',
-        'adult',
-        'historic',
-        'food',
-        'sports'
-      ]
-    });
-
+        location: [this.state.lat, this.state.lng],
+        categories: this.state.categories
+    })
   }
 
+  //after the component Mounts, it will fetch the preferences and set it to the state 
+  //selector will parse the res to into the correct format
   componentDidMount() {
     this.initGeolocation();
+
+    //should only fetch preferences if the user is logged in and when someone refreshes
+    if(this.props.currentUserId){
+      this.props.fetchPreference().then(res => {
+        this.setState({categories: Selector.getPreference(res.preference)})
+      })
+    }
   }
 
   componentDidUpdate(prevProps) {

@@ -2,7 +2,7 @@
 
 ### NoPlanNeeded
 ---
-NPN is a quick and powerful random event generator. You can check out a [live](https://www.google.com) demo here!
+NPN is a quick and powerful random event generator. You can check out a [live](https://noplanneeded.herokuapp.com/#/) demo here!
 
 ## Background and Overview
 ---
