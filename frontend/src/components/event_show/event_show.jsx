@@ -117,7 +117,7 @@ class EventShow extends React.Component {
         eventPicture = concert;
       } else if (this.props.event.picture.data) {
         console.log('picture.data')
-        const img = new Image;
+        const img = new Image();
         img.src = this.props.event.picture.data;
         eventPicture = img
       }
@@ -143,7 +143,7 @@ class EventShow extends React.Component {
             <h1>{this.props.event.title}</h1>
             <div className="event-img-map">
               <div className="event-img">
-                <img id='event-image'
+                <img id='event-image' alt='event-pic'
                   src={eventPicture} />
               </div>
               <div className="event-map">

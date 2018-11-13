@@ -50,6 +50,7 @@ class History extends React.Component {
             About Us
           </Link>
         </div>
+        
         <div className="history-div">
           <img
             id="modal-x"
@@ -58,8 +59,10 @@ class History extends React.Component {
             alt="close modal button"
             onClick={this.closeModal}
           />
-        <h1>Check out the events you've saved!</h1>
+          <h1>Check out the events you've saved!</h1>
+          <ul>
             { pastEvents }
+          </ul>
         </div>
       </div>
     );

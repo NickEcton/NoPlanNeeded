@@ -22,7 +22,10 @@ const normalizeBackend = (preference) => {
 
 
 // const normalizePreference = (preference) => {
+<<<<<<< HEAD
 //     debugger;
+=======
+>>>>>>> origin
 //     return { 
 //         [preference.id]: {
 //         id: preference.id, 

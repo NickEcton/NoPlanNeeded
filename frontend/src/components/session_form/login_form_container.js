@@ -6,11 +6,16 @@ import SessionForm from './session_form';
 import { fetchPreference } from '../../actions/preferences_actions.js';
 
 const mapStateToProps = (state) => {
+  debugger
   return {
     // errors: errors.session,
     formType: 'Log in',
     navLink: <Link to="/signup">Sign up</Link>,
+<<<<<<< HEAD
     // session: this.state.session.id
+=======
+    session: state.session.id
+>>>>>>> origin
   };
 };
 
