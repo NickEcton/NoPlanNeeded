@@ -42,7 +42,7 @@
     font-size: 15px;
 }
 
-.session-form button {
+.session-button {
     height: 40px;
     width: 400px;
     border-radius: 3px;
@@ -54,7 +54,7 @@
     margin-bottom: 20px;
 }
 
-.session-form button:hover {
+.session-button:hover {
     cursor: pointer;
 }
 
