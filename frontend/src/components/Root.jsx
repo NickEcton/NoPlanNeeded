@@ -4,6 +4,7 @@ import { AuthRoute } from '../util/route_util.jsx';
 //in this file, we will putting in the modals and the routes
 import '../stylesheets/root.css';
 
+import Greeting from './greeting/greeting.jsx';
 import NavBarContainer from './nav_bar/nav_bar_container.js';
 import HomePageContainer from './home_page/home_page_container.js';
 import LoginFormContainer from './session_form/login_form_container.js';
@@ -18,6 +19,7 @@ import AboutContainer from './user/about_container.js';
 const Root = () => {
     return(
       <div className='root-div'>
+        <Greeting />
         <NavBarContainer />
         <HomePageContainer />
         <Switch>

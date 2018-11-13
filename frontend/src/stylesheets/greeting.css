@@ -1,0 +1,30 @@
+#greeting-modal.hidden {
+  display: none;
+}
+
+.greeting-div {
+    background-color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #abb1b8;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 50px;
+    margin: auto;
+    width: 75%;
+    min-width: 360px;
+    height: 75%;
+}
+
+.greeting-x {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    height: 15px;
+    width: 15px;
+}
+
+.greeting-x:hover {
+    cursor: pointer;
+}

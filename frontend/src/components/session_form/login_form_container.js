@@ -5,7 +5,7 @@ import { loginUser } from '../../util/session_api_util.js';
 import SessionForm from './session_form';
 
 const mapStateToProps = (state) => {
-  debugger
+  // debugger
   return {
     // errors: errors.session,
     formType: 'Log in',

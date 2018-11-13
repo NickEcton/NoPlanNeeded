@@ -128,7 +128,7 @@ class SessionForm extends React.Component {
                   className="session-input"
                 />
               </label>
-              <button type='submit'>Sign up</button>
+              <button className='session-button' type='submit'>Sign up</button>
             </form>
             <h2>Already have an account?  {this.props.navLink}</h2>
           </div>
@@ -163,13 +163,13 @@ class SessionForm extends React.Component {
                     onChange={this.update("password")}
                     className="session-input"/>
                 </label>
-                <button type='submit'>Log in</button>
-                <button
-                  onClick={this.autoFill}>
-                  Log in as Guest
-                </button>
+                <button className='session-button' type='submit'>Log in</button>
               </div>
             </form>
+            <button className='session-button' 
+              onClick={this.autoFill}>
+              Log in as Guest
+            </button>
             <h2>Don't have an account? {this.props.navLink}</h2>
           </div>
         </div>

@@ -11,7 +11,7 @@ class History extends React.Component {
   }
 
   closeModal(e) {
-    const modal = document.getElementById("history-modal");
+    const modal = document.getElementById("about-modal");
     const xBtn = document.getElementById("modal-x");
     if (e.target === modal || e.target === xBtn) {
       this.props.history.push("/");
@@ -21,7 +21,7 @@ class History extends React.Component {
   render() {
     return (
       <div
-        id="history-modal"
+        id="about-modal"
         className="modal-background"
         onClick={this.closeModal}
       >
