@@ -1,23 +1,12 @@
 import { connect } from "react-redux";
 import Preferences from "./preferences";
 import { fetchPreference, editPreference } from '../../actions/preferences_actions.js';
+import * as Selector from '../../util/selector';
 
 //need to check amongst the preferences, which preference belongs to the owner
-const filterByUsers = (pastPreferenceObj, currentUserId) => {
-  let preferenceArray = Object.values(pastPreferenceObj);
-  for(let i = 0; i < preferenceArray.length; i++){
-    let preference = preferenceArray[i];
-    if(preference.userId === currentUserId){
-      return preference;
-    }
-  }
-  return {};
-}
-
-
 const mapStateToProps = state => {
   return {
-    preference: filterByUsers(state.entities.preferences, state.session.id)
+    preference: Selector.filterByUser(state.entities.preferences, state.session.id)
   };
 };
 

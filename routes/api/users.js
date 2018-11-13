@@ -43,6 +43,7 @@ router.post('/register', (req, res) => {
             password: req.body.password
           })
 
+          //when you register a new user, the preferences are made in the DB as well
           const newPreference = new Preference({userId: newUser.id})
           newPreference.save();
           //salt the password (hash)
