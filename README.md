@@ -6,10 +6,12 @@ NPN is a quick and powerful random event generator. You can check out a [live](h
 ![Welcome Modal](frontend/src/images/logged-out-welcome-modal.png)
 
 ## Table of Content
-    1. [Introduction] (#introduction)
-    2. [Getting Started] (#getting-started)
-    3. [Technical Challenges] (#technical-challenges)
-    4. [Code Snippets] (#code-snippets)
+---
+    * [Introduction](#introduction)
+    * [Getting Started](#getting-started)
+    * [Technical Challenges](#technical-challenges)
+    * [Code Snippets](#code-snippets)
+
 
 ## Introduction
 ---
@@ -132,10 +134,10 @@ export default hikingNormalizer;
 ``` 
 
 ## This project was compromised of: 
-  *  [https://www.linkedin.com/in/clayton-christian/](Clayton Christian)
-  *  [https://www.linkedin.com/in/devin-flood-02032125/](Devin Flood)
-  *  [https://www.linkedin.com/in/nicholas-ecton-095423120/](Nicholas Ecton)
-  *  [https://www.linkedin.com/in/hsusteph5/](Stephanie Hsu)
+  *  [Clayton Christian](https://www.linkedin.com/in/clayton-christian/)
+  *  [Devin Flood](https://www.linkedin.com/in/devin-flood-02032125/)
+  *  [Nicholas Ecton](https://www.linkedin.com/in/nicholas-ecton-095423120/)
+  *  [Stephanie Hsu](https://www.linkedin.com/in/hsusteph5/)
 
 
 
