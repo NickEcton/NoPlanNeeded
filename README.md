@@ -5,14 +5,6 @@ NPN is a quick and powerful random event generator. You can check out a [live](h
 
 ![Welcome Modal](frontend/src/images/logged-out-welcome-modal.png)
 
-## Table of Content
----
-    * [Introduction](#introduction)
-    * [Getting Started](#getting-started)
-    * [Technical Challenges](#technical-challenges)
-    * [Code Snippets](#code-snippets)
-
-
 ## Introduction
 ---
 As individuals living in the modern age, we are enveloped by choice. Too much choice. And finding what to do with our spare time is no exception.
