@@ -36,28 +36,28 @@ class SessionForm extends React.Component {
 
   //autotype the demo user and password
   autoFill() {
-    const speed = 70;
-    const text1 = "demo@demo.com";
-    const text2 = "password";
+      const speed = 70;
+      const text1 = "demo@demo.com";
+      const text2 = "password";
 
-    if (this.idx < text1.length) {
-      this.setState({
-        email: this.state.email + text1.charAt(this.idx)
-      }, () => {
-        this.idx++;
-        setTimeout(this.autoFill, speed);
-      });
-    } else if (this.idx2 < text2.length) {
-      this.setState({
-        password: this.state.password + text2.charAt(this.idx2)
-      }, () => {
-        this.idx2++;
-        setTimeout(this.autoFill, speed);
-      });
-    } else {
-      const user = Object.assign({}, this.state);
-      this.props.processForm(user)
-    }
+      if (this.idx < text1.length) {
+        this.setState({
+          email: this.state.email + text1.charAt(this.idx)
+        }, () => {
+          this.idx++;
+          setTimeout(this.autoFill, speed);
+        });
+      } else if (this.idx2 < text2.length) {
+        this.setState({
+          password: this.state.password + text2.charAt(this.idx2)
+        }, () => {
+          this.idx2++;
+          setTimeout(this.autoFill, speed);
+        });
+      } else {
+        const user = Object.assign({}, this.state);
+        this.props.processForm(user)
+      }
   }
 
   //processForm is either signup a user or logging in an user
