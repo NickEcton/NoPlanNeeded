@@ -10,9 +10,6 @@ router.post('/create', passport.authenticate('jwt', { session: false }), (req, r
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    
-    // let date = Date(req.body.eventDate);
-    //check if the event is already saved
   
     //need to parse the location 
     History.findOne({ userId: req.user.id , title: req.body.title})

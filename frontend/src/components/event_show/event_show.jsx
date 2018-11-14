@@ -38,7 +38,7 @@ class EventShow extends React.Component {
       this.props.history.push("/");
     }
   }
-
+ 
   initGeolocation() {
     if (navigator.geolocation) {
       // Call getCurrentPosition with success and failure callbacks
@@ -121,10 +121,12 @@ class EventShow extends React.Component {
         img.src = this.props.event.picture.data;
         eventPicture = img
       }
-
-
       
-      
+      //if the user is not logged in, you cannot save the event
+      let saveEvent = (this.props.currentUserId) ? (
+        <button onClick={this.saveEvent}>Save Event</button>
+      ) : ("");
+
       return (
         <div
         id="event-modal"
@@ -156,7 +158,7 @@ class EventShow extends React.Component {
               </p>
             </div>
             <div className="event-buttons">
-              <button onClick={this.saveEvent}>Save Event</button>
+              { saveEvent }
               <button onClick={this.getNewEvent}>
                 Get New Event
               </button>
@@ -171,3 +173,6 @@ class EventShow extends React.Component {
 }
 
 export default EventShow;
+
+
+{/* <button id="save" onClick={this.saveEvent}>Save Event</button> */}
