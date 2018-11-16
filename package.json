@@ -31,6 +31,7 @@
     "validator": "^10.8.0"
   },
   "devDependencies": {
+    "dotenv": "^6.1.0",
     "nodemon": "^1.18.4"
   }
 }

@@ -4,8 +4,6 @@ import eventfulNormalizer from '../components/normalizers/eventfulNormalizer.js'
 import tourNormalizer from '../components/normalizers/tourNormalizer.js';
 import hikingNormalizer from '../components/normalizers/hikingNormalizer.js';
 import predictNormalizer from '../components/normalizers/predictNormalizer.js';
-const googleAPI = require('./googleAPI.js').googleAPI;
-
 
 
 
@@ -54,13 +52,12 @@ export const pickRandomEvent = (pojo) => {
 }
 
 export const receiveGooglePlaces = (location, category) => dispatch => {
-    // debugger
     return ApiUtil.receiveGooglePlaces(category, location).then((res) => { 
         
         let pojo = googleNormalizer(res)
             
         if (pojo.photoref) {
-            pojo["picture"] = `https://maps.googleapis.com/maps/api/place/photo?key=${googleAPI}&photoreference=${pojo.photoref}&maxheight=300`;    
+            pojo["picture"] = `https://maps.googleapis.com/maps/api/place/photo?key=${process.env.REACT_APP_GOOGLE_MAPS_API}&photoreference=${pojo.photoref}&maxheight=300`;    
          } else {
              pojo["picture"] = null
          }

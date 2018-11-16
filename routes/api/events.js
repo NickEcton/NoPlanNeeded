@@ -3,7 +3,6 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const axios = require('axios');
-const googleAPI = require("../../frontend/src/actions/googleAPI.js").googleAPI;
 
 // const Event = require('../../models/History');
 // const validateEventInput = require('../../validations/history');
@@ -32,7 +31,7 @@ router.get('/new/Eventful/:category/:location', (req, res) => {
 router.get(`/GooglePlace/:ref`, (req, res) => {
   axios({
     method: "GET",
-    url: `https://maps.googleapis.com/maps/api/place/photo?key${googleAPI}&photoreference=${
+    url: `https://maps.googleapis.com/maps/api/place/photo?key${process.env.REACT_APP_GOOGLE_MAPS_API}&photoreference=${
       req.params.ref
     }&maxheight=300`
   }).then(response => {
@@ -44,7 +43,7 @@ router.get('/new/GooglePlaces/:type/:location', (req, res) => {
   
   axios({
     method: "GET",
-    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${googleAPI}&location=${
+    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${process.env.REACT_APP_GOOGLE_MAPS_API}&location=${
       req.params.location
     }&type=${req.params.type}&radius=10000`
   }).then(response => {
