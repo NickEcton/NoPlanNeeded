@@ -1,11 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
-const passport = require('passport');
 const axios = require('axios');
 
-// const Event = require('../../models/History');
-// const validateEventInput = require('../../validations/history');
 
 //work on this! 
 router.get('/Eventful/:id', (req, res) => {
