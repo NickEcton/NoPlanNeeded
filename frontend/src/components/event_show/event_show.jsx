@@ -173,6 +173,3 @@ class EventShow extends React.Component {
 }
 
 export default EventShow;
-
-
-{/* <button id="save" onClick={this.saveEvent}>Save Event</button> */}

@@ -12,6 +12,8 @@ import App from './App.js';
 // import { fetchPreference, createPreference, editPreference } from './actions/preferences_actions.js';
 // import { fetchPreference } from './util/api/preferences.js';
 
+import googleConfig from './googleConfig';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
@@ -59,6 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   const root = document.getElementById('root');
-  ReactDOM.render(<App store={store} />, root);
+
+  googleConfig().then(() => (
+    ReactDOM.render(<App store={store} />, root)
+  ));
+
 });
 

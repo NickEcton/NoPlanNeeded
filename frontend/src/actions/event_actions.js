@@ -7,7 +7,6 @@ import predictNormalizer from '../components/normalizers/predictNormalizer.js';
 
 
 
-
 export const RECEIVE_ONE_EVENT = 'RECEIVE_ONE_EVENT'
 
 const receiveOneEvent = (event) => ({
@@ -53,13 +52,12 @@ export const pickRandomEvent = (pojo) => {
 }
 
 export const receiveGooglePlaces = (location, category) => dispatch => {
- 
     return ApiUtil.receiveGooglePlaces(category, location).then((res) => { 
         
         let pojo = googleNormalizer(res)
             
         if (pojo.photoref) {
-            pojo["picture"] =`https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyDYpYUFcyLs-NsGwq7CYkPLFSnGcZ5unp4&photoreference=${pojo.photoref}&maxheight=300`    
+            pojo["picture"] = `https://maps.googleapis.com/maps/api/place/photo?key=${process.env.REACT_APP_GOOGLE_MAPS_API}&photoreference=${pojo.photoref}&maxheight=300`;    
          } else {
              pojo["picture"] = null
          }

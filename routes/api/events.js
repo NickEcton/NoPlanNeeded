@@ -31,21 +31,24 @@ router.get('/new/Eventful/:category/:location', (req, res) => {
 router.get(`/GooglePlace/:ref`, (req, res) => {
   axios({
     method: "GET",
-    url: `https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyDYpYUFcyLs-NsGwq7CYkPLFSnGcZ5unp4&photoreference=${req.params.ref}&maxheight=300`
+    url: `https://maps.googleapis.com/maps/api/place/photo?key${process.env.REACT_APP_GOOGLE_MAPS_API}&photoreference=${
+      req.params.ref
+    }&maxheight=300`
   }).then(response => {
-    res.send(response.data)
-  })
+    res.send(response.data);
+  });
 })
 
 router.get('/new/GooglePlaces/:type/:location', (req, res) => {
   
   axios({
     method: "GET",
-    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDYpYUFcyLs-NsGwq7CYkPLFSnGcZ5unp4&location=${req.params.location}&type=${req.params.type}&radius=10000`
+    url: `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${process.env.REACT_APP_GOOGLE_MAPS_API}&location=${
+      req.params.location
+    }&type=${req.params.type}&radius=10000`
   }).then(response => {
-      
-    res.send(response.data)
-  })
+    res.send(response.data);
+  });
 })
 
 router.get('/hiking/:loc1/:loc2', (req, res) => {
